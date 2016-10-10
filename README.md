@@ -1,12 +1,16 @@
 # Codaisseur-shop
 
 1. Go to your coding directory
+
 2. Download repository in this directory
+
   a. https://github.com/stofstik/codaisseur-shop
-    I. Clone via SSH
-    II. Then in terminal:
-      1. Git clone git@github.com:stofstik/codaisseur-shop.git
-3. Bundle install
+  
+  b. Clone via SSH
+  
+  c. Then in terminal: git clone git@github.com:stofstik/codaisseur-shop.git 
+
+3. In terminal: bundle install
 
 
 
