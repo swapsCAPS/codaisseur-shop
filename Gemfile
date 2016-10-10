@@ -1,10 +1,20 @@
 source 'https://rubygems.org'
 
+# Use rspec
+group :development, :test do
+  gem 'rspec-rails', '~> 3.5', '>= 3.5.2'
+end
+
+# Use Capybara
+group :test do
+  gem 'capybara', '~> 2.9', '>= 2.9.1'
+end
+
+# Use postgres for our database
+gem 'pg'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
