@@ -1,6 +1,6 @@
 FactoryGirl.define do
 
-  factory :room do
+  factory :product do
     #home_type         "House"
     #room_type         "Shared"
     #accommodate       2

@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :theme do
-    name    "not more than 50 characters!"
+  factory :category do
+    name    { Faker::Internet.name }
   end
 end
