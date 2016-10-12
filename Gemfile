@@ -48,6 +48,9 @@ gem 'rb-readline', '~> 0.4.2'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+
+  gem 'factory_girl_rails', '4.7.0'     #PIM added for testing
+  gem 'faker', '1.6.6'                  #PIM added for testing
 end
 
 group :development do
