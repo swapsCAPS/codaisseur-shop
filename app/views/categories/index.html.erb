@@ -1,0 +1,17 @@
+ <!-- itinerating all the categories -->
+<% @categories.each do |category| %>
+<div class="category">
+    <!-- printing the category name as title  -->
+    <h1><%= category.name %>
+      <!-- select the products that include the current category -->
+    <% categorys_products = @products.select{|product| product.categories.include? category}
+      # itinerating over each product of the current category
+      categorys_products.each do |product| %>
+    <div class="product">
+          <!-- printing the name of each product -->
+      <h1><%= product.name %></h1>
+
+    </div>
+    <% end %>
+</div>
+<% end %>
