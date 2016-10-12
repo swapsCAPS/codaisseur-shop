@@ -1,0 +1,11 @@
+<h1><%= @product.name %></h1>
+<h2>Price: € <%= @product.price %></h2>
+<h3>Find this product in categories:</h3>
+<ul>
+    <% @product.categories.each do |category| %>
+        <li>
+            <%= category.name %>
+        </li>
+    <% end %>
+
+</ul>

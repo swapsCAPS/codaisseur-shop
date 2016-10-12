@@ -23,7 +23,9 @@ ActiveRecord::Schema.define(version: 20161011184503) do
 
   create_table "categories_products", id: false, force: :cascade do |t|
     t.integer "product_id"
+    t.integer "categories_id"
     t.integer "category_id"
+    t.index ["categories_id"], name: "index_categories_products_on_categories_id", using: :btree
     t.index ["category_id"], name: "index_categories_products_on_category_id", using: :btree
     t.index ["product_id"], name: "index_categories_products_on_product_id", using: :btree
   end
