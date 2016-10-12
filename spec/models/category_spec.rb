@@ -6,7 +6,7 @@ require 'rails_helper'
 
 RSpec.describe Category, type: :model do
   context "category has one product" do
-    let(:user1) {create :user}
+    let(:user1) { create :user }
     let(:product1) { create :product, user: user1 }
     let(:category1) { create :category, products: [product1] }      # same remark as above: we need an array
 
@@ -16,7 +16,7 @@ RSpec.describe Category, type: :model do
   end
 
   context "category has multiple products" do
-    let(:user1) {create :user}
+    let(:user1) { create :user }
     let(:product1) { create :product, user: user1 }
     let(:product2) { create :product, user: user1 }
     let(:category1) { create :category, products: [product1, product2] }
