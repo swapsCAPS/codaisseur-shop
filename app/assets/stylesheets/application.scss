@@ -8,3 +8,23 @@ h1, h2, h3, h4 {
     margin: 0;
     padding: 0;
 }
+.navbar-default{
+  width: 100%;
+  top: 0;
+  position: fixed;
+  border: 0;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.5);
+}
+.navbar, .dropdown-menu, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus, .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:hover{
+  background: rgb(32, 61, 29);
+}
+.navbar a.navbar-brand, .navbar.navbar-default .navbar-collapse .navbar-nav > li > a.dropdown-toggle, .dropdown-menu > li > a {
+  color: rgb(154, 221, 146);
+}
+
+.navbar a.navbar-brand:hover, .navbar.navbar-default .navbar-collapse .navbar-nav > li > a.dropdown-toggle:hover{
+  color: rgb(202, 235, 198);
+}
+.navbar-nav > li > .dropdown-menu{
+  border-top: 1px solid #e5e5e5;
+}
