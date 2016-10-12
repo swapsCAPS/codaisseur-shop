@@ -7,7 +7,7 @@
     <% products_of_category = @products.select{|product| product.categories.include? category}
       # itinerating over each product of the current category
     products_of_category.each do |product| %>
-    <a href="product_path(product.id)">
+    <a href="<%= product_path(product.id) %>">
       <div class="product">
             <!-- printing the name of each product -->
         <h3><%= product.name %></h3>
