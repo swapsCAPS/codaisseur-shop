@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 20161012100247) do
     t.integer "categories_id"
     t.integer "category_id"
     t.index ["categories_id"], name: "index_categories_products_on_categories_id", using: :btree
-    t.index ["category_id"], name: "index_categories_products_on_category_id", using: :btree                      # PIM what's this for ?
+    t.index ["category_id"], name: "index_categories_products_on_category_id", using: :btree
     t.index ["product_id"], name: "index_categories_products_on_product_id", using: :btree
   end
 
@@ -60,6 +60,6 @@ ActiveRecord::Schema.define(version: 20161012100247) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
-  add_foreign_key "categories_products", "categories"                       # PIM what's for ?  The many-to-many in Codaisseurbnb doesn't use this foreign-key,...
-  add_foreign_key "products", "users"                                       # ... only for one-to-many
+  add_foreign_key "categories_products", "categories"
+  add_foreign_key "products", "users"
 end
