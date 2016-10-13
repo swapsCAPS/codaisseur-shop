@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
   # Set product for this instance, results in DRY code.
   before_action :set_product, only: [:show, :edit, :update]
   # Check if user is logged in for all actions except show
-  before_action :authenticate_user!, except: [:show]
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
     # Get all products from the model
@@ -11,11 +11,12 @@ class ProductsController < ApplicationController
 
   def show
     # If an image exists display it, otherwise, use a placeholder
-    @image = @product.image ? @product.image : "http://placehold.it/150x150"
+    @photo_main = @product.photos ? @product.photos[0] : "http://placehold.it/150x150"
     # Expose the seller to the view. Render email if the user does not have a profile yet
     @seller = @product.user.profile ? @product.user.full_name : @product.user.email
     # If the user who posted this product is the same as the current user, he/she may edit
     @can_edit = @product.user == current_user
+    @photos = @product.photos
   end
 
   def new
@@ -26,7 +27,7 @@ class ProductsController < ApplicationController
   def edit
     # Check if this user owns this product
     if current_user.id == @product.user.id
-      @photos = @product.photos
+	@photos = @product.photos
     else
       redirect_to root_path, notice: "What do you think you are doing?"
     end
