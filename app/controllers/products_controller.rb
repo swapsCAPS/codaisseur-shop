@@ -8,7 +8,7 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
-    @image = @product.image ? product.image : "http://placehold.it/150x150"
+    @image = @product.image ? @product.image : "http://placehold.it/150x150"
   end
 
   def new
