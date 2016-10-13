@@ -2,6 +2,8 @@
     <h1><%= @product.name %></h1>
     <%= image_tag(@image, :class => "image") %>
     <span class="price">Price: € <%= @product.price %></span>
+    <span class="sold-by">Sold by: <%= @seller %></span>
+    <%= @can_edit ? link_to("Edit", edit_product_path, class: "btn btn-default") : "" %>
     <label>Find more in:</label>
     <ul class="list">
         <% @product.categories.each do |category| %>
@@ -9,6 +11,5 @@
                 <%= link_to category.name, category %>
             </li>
         <% end %>
-
     </ul>
 </div>
