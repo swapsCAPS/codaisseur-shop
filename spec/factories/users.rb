@@ -1,6 +1,10 @@
 FactoryGirl.define do
   factory :user do
-    email    { Faker::Internet.email }
-    password { Faker::Internet.password }
+    name      { Faker::Pokemon.name }
+    email     { Faker::Internet.email }
+    password  { Faker::Internet.password }
+
+    # add a role
+
   end
 end
