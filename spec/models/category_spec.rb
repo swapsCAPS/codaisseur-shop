@@ -5,6 +5,9 @@ require 'rails_helper'
 # 1 category contains multiple products
 
 RSpec.describe Category, type: :model do
+
+
+
   context "category has one product" do
     let(:user1) { create :user }
     let(:product1) { create :product, user: user1 }
