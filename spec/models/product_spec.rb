@@ -1,13 +1,25 @@
 require 'rails_helper'
 
 
-# here we test our product-category relation in 2 ways (see category_spec.rb for 2 more)
+# here we test our product-category relation in 3 ways (see category_spec.rb for 2 more)
+# 1 product has NO category
 # 1 product has 1 category
 # 1 product has multiple categories
 
-# we also check the association of a product with a user
+# we also first check the association of a product with a user
 
 RSpec.describe Product, type: :model do
+
+  context "product has NO category" do
+    let(:user1) {create :user}
+
+    let(:product1) { create :product, user: user1, categories: [] }      # same remark as below: we need an array
+
+    it "has category" do
+      expect(product1.categories).to eq([])
+    end
+  end
+
 
   describe "association with user" do               # a product needs a user
     let(:user) { create :user }
