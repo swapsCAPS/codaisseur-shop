@@ -1,3 +1,92 @@
 // Place all the styles related to the Categories controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.wrapper{
+  width: auto;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+}
+
+main{
+  width: 100%;
+  overflow-y: hidden;
+}
+.categories{
+  width: 75%;
+  height: auto;
+  margin-top:25px;
+  justify-content: flex-start;
+}
+
+.categories a{
+  width: 100%;
+  display: block;
+  border-bottom: 1px solid rgb(55, 111, 54);
+  text-decoration: none;
+}
+.categories h1{
+  color: rgb(55, 111, 54);
+}
+.categories .category{
+  width: 100%;
+  height: 210px;
+  overflow-y: visible;
+  overflow-x: scroll;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin-bottom: 25px;
+  margin-top: 10px;
+  padding: 1px;
+  flex-wrap: nowrap;
+}
+.categories .category .product a{
+  width: 200px;
+  height: 200px;
+  padding: 0;
+  margin: 0;
+  background: rgb(154, 221, 146);
+  border: 1px solid rgb(55, 111, 54);
+  border-left: 0;
+  position: relative;
+  z-index: 100;
+}
+.categories .category .product{
+
+}
+
+.categories .category .product h3{
+  color: rgb(55, 111, 54);
+}
+
+.category{
+  width: 75%;
+  margin-top: 25px;
+  justify-content: center;
+  text-align: center;
+  flex-wrap: wrap;
+  color: rgb(55, 111, 54);
+}
+.product{
+  display: inline-block;
+  width: 200px;
+  min-height: 200px;
+  margin: 10px;
+  position: relative;
+  background: rgb(154, 221, 146);
+  transition: 0.2s;
+}
+
+.product:hover{
+  top: -5px;
+  box-shadow: 0px 1px 5px rgba(0,0,0,0.8);
+}
+
+.product h1{
+  font-size: 20px;
+  color: rgb(55, 111, 54);
+}

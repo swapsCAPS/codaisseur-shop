@@ -1,0 +1,14 @@
+<div class="main">
+    <h1><%= @product.name %></h1>
+    <%= image_tag(@product.image, :class => "image") %>
+    <span class="price">Price: € <%= @product.price %></span>
+    <label>Find more in:</label>
+    <ul class="list">
+        <% @product.categories.each do |category| %>
+            <li class="list-item">
+                <%= link_to category.name, category %>
+            </li>
+        <% end %>
+
+    </ul>
+</div>

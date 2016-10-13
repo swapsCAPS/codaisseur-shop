@@ -1,17 +1,23 @@
- <!-- itinerating all the categories -->
-<% @categories.each do |category| %>
-<div class="category">
+<main class="wrapper">
+  <!-- itinerating all the categories -->
+<div class="categories wrapper">
+    <% @categories.each do |category| %>
     <!-- printing the category name as title  -->
-    <h1><%= category.name %></h1>
-      <!-- select the products that include the current category -->
-    <% products_of_category = @products.select{|product| product.categories.include? category}
-      # itinerating over each product of the current category
-      products_of_category.each do |product| %>
-    <div class="product">
-          <!-- printing the name of each product -->
-      <h1><%= product.name %></h1>
+    <a href="<%= category_path(category.id) %>">
+        <h1><%= category.name %></h1>
+    </a>
+    <div class="category wrapper">
+        <!-- select the products that include the current category -->
+        <% category.products.each do |product| %>
+        <a href="<%= product_path(product.id) %>">
+            <div class="product wrapper">
+                <!-- printing the name of each product -->
+                <h3><%= product.name %></h3>
 
+            </div>
+        </a>
+        <% end %>
     </div>
     <% end %>
 </div>
-<% end %>
+</main>
