@@ -53,4 +53,52 @@ RSpec.describe Product, type: :model do
       expect(product1.categories).to eq([category1, category2])
     end
   end
+
+  # here come the validations !!!
+
+  describe "validations" do
+    it "is invalid without a name" do
+      product = Product.new()      # name: ""
+      product.valid?
+      expect(product.errors).to have_key(:name)
+    end
+
+    it "is invalid with a name longer than 50 characters" do
+      product = Product.new(name: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. ")
+      product.valid?
+      expect(product.errors).to have_key(:name)
+    end
+
+    it "is invalid without a price" do
+      product = Product.new()
+      product.valid?
+      expect(product.errors).to have_key(:price)
+    end
+
+    context "is associated to user" do
+
+      let(:user) { create :user }
+
+      it "is invalid without a user_id!" do
+        product = Product.new()
+        product.valid?
+        expect(product.errors).to have_key(:price)
+      end
+
+      it "is valid with a user_id" do
+        product = user.products.new
+        product.valid?
+        expect(product.errors).not_to have_key(:user_id)          #
+        expect(product.errors).not_to have_key(:product)          # this is how it's done in codaiseurbnb in rooms_spec.rb:49   BUT WHY?
+      end
+    end
+
+
+
+
+
+
+
+
+  end
 end
