@@ -10,7 +10,7 @@ RSpec.describe Category, type: :model do
   context "category has NO product" do
     let(:user1) {create :user}
 
-    let(:category1) { create :category, products: [] }      # same remark as below: we need an array
+    let(:category1) { create :category, products: []}      # same remark as below: we need an array
 
     it "has category" do
       expect(category1.products).to eq([])

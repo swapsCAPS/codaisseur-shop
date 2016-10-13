@@ -15,7 +15,7 @@ RSpec.describe Product, type: :model do
 
     let(:product1) { create :product, user: user1, categories: [] }      # same remark as below: we need an array
 
-    it "has category" do
+    it "has 1 category" do
       expect(product1.categories).to eq([])
     end
   end
