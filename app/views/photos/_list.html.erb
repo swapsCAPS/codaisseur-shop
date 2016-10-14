@@ -1,0 +1,14 @@
+<div class="photos-container">
+    <% if @photos %>
+        <% @photos.each do |photo| %>
+            <div class="panel panel-default">
+                <div class="panel-heading preview">
+                    <%= image_tag photo.image, class: "image" %>
+                </div>
+                <div class="panel-body">
+                    <%= link_to "Delete", photo_path( photo.id ), class: "btn btn-default", method: :delete, data: { confirm: "Are you sure?" } %>
+                </div>
+            </div>
+        <% end %>
+    <% end %>
+</div>
