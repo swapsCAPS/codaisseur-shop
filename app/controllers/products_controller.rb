@@ -11,12 +11,13 @@ class ProductsController < ApplicationController
 
   def show
     # If an image exists display it, otherwise, use a placeholder
-    @photo_main = @product.photos ? @product.photos[0] : "http://placehold.it/150x150"
+    @photo_main = @product.photos ? @product.photos[0] : @product.image
     # Expose the seller to the view. Render email if the user does not have a profile yet
     @seller = @product.user.profile ? @product.user.full_name : @product.user.email
     # If the user who posted this product is the same as the current user, he/she may edit
     @can_edit = @product.user == current_user
     @photos = @product.photos
+    # get the product_id from the params
   end
 
   def new
@@ -57,6 +58,17 @@ class ProductsController < ApplicationController
 	else
 	  render :edit
 	end
+  end
+
+  def destroy
+    @product = Product.find(params[:id])
+    if current_user.id == @product.user.id
+      @product.destroy
+      redirect_to products_path, notice: "Teh product is gawn!"
+    else
+      redirect_to product_path, notice: "What do you think you are doing?"
+    end
+
   end
 
   private
