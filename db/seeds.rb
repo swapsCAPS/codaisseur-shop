@@ -6,9 +6,11 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User.delete_all
+Photo.delete_all
 Category.delete_all
 Product.delete_all
+User.delete_all
+
 
 buyer1 = User.create( {name: "Giulio", email: "giulio@gmail.com", role: "buyer", password: "abcd1234"} )
 buyer2 = User.create( {name: "Pim", email: "pvdh@gmail.com", role: "buyer", password: "abcd1234"} )
@@ -17,7 +19,6 @@ seller1 = User.create( {name: "Robert", email: "robert@gmail.com", role: "seller
 category1 = Category.create ( {name: "Offline"} )
 category2 = Category.create ( {name: "Online"} )
 category3 = Category.create ( {name: "Books"} )
-
 
 
 product1 = Product.create ( {name: "product1", price: 1.00, description: "lorem ipsum", image: "https://res-4.cloudinary.com/pvdh/image/upload/c_scale,h_350,w_350/v1476440746/teach-english-uz_rd4soi.jpg", user: seller1, categories: [category1] } )
