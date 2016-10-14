@@ -42,6 +42,11 @@
                 <li>
                     <a href="<%= products_path %>">Products</a>
                 </li>
+                <% if session[:shopping_cart] && user_signed_in? %>
+                  <li>
+                      <a href="<%= product_shopping_cart_path(current_user.id, current_user.id) %>">Shopping Cart</a>
+                  </li>
+                <% end %>
                 <% if !user_signed_in? %>
                   <li><%= link_to "Log In", new_user_session_path %></li>
                   <li><%= link_to "Sign Up", new_user_registration_path %></li>
