@@ -59,6 +59,17 @@ class ProductsController < ApplicationController
 	end
   end
 
+  def destroy
+    @product = Product.find(params[:id])
+    if current_user.id == @product.user.id
+      @product.destroy
+      redirect_to products_path, notice: "Teh product is gawn!"
+    else
+      redirect_to product_path, notice: "What do you think you are doing?"
+    end
+
+  end
+
   private
     def set_product
       @product = Product.find(params[:id])
