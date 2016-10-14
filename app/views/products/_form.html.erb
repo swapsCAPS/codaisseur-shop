@@ -1,0 +1,44 @@
+<%= form_for @product, html: { multipart: true } do |f| %>
+
+  <div>
+    <% @product.errors.full_messages.each do |msg| %>
+      <p class="alert alert-danger"><%= msg %></p>
+    <% end %>
+  </div>
+
+  <div class="form-group">
+    <label>Prodcut Name:</label>
+    <%= f.text_field :name, placeholder: "Product name", class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <label>Product Category</label>
+    <%= f.collection_select :category_ids, Category.all, :id, :name,{ :prompt => "Pick categories"}, { :multiple => true, :size => 5 } %>
+  </div>
+
+  <div class="form-group">
+    <label>Description:</label>
+    <%= f.text_area :description, rows: 5, placeholder: "Decribe the product you are selling", class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <label>Price:</label>
+    <%= f.number_field :price, placeholder: "Price", class: "form-control" %>
+  </div>
+
+  <label>Upload Photos</label>
+  <div class="form-group">
+	<span class="btn btn-default">
+	  <%= file_field_tag "images[]", type: :file, multiple: true %>
+	</span>
+  </div>
+
+  <div id="photos">
+	<%= render 'photos/list' %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Save", class: "btn btn-primary" %>
+  </div>
+<% end %>
+
