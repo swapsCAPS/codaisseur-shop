@@ -1,6 +1,7 @@
 <% @products.order(:price).each do |product| %>
   <%= link_to product do %>
-    <h4><%= product.name %> € <%= number_to_currency product.price, locale: :nl %></h4>
+    <h4><%= product.name %> </h4>
+    <h6><%= number_to_currency(product.price, unit: '€') %></h6>
   <% end %>
 <% end %>
 <hr>
