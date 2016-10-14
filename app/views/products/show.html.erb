@@ -7,6 +7,9 @@
     <!-- For now only display first photo in photo array -->
     <!-- TODO needs expand photos button or similar -->
     <div class="photos-container">
+        <div>
+            <%= image_tag @product.image, class: "image" %>
+        </div>
         <% if @photos %>
           <% @photos.each do |photo| %>
               <div>
