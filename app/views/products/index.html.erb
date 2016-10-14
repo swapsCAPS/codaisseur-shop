@@ -1,6 +1,6 @@
-<% @products.each do |product| %>
+<% @products.order(:price).each do |product| %>
   <%= link_to product do %>
       <h4><%= product.name %></h4>
   <% end %>
 <% end %>
-
+<hr>
