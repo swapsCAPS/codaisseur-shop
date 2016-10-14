@@ -1,6 +1,11 @@
 <div class="main">
+<<<<<<< HEAD
     <%= form_tag(!session[:shopping_cart] ? new_product_shopping_cart_path(@product.id) : edit_product_shopping_cart_path(@product.id), method: "get") do%>
     <h1><%= @product.name %></h1>
+=======
+    <h1 class="title"><%= @product.name %><%= @can_edit ? link_to("Edit product", edit_product_path, class: "btn btn-default") : "" %></h1>
+
+>>>>>>> be07c0fd79c26d92c5f1f568797b3325f9810474
     <!-- For now only display first photo in photo array -->
     <!-- TODO needs expand photos button or similar -->
     <div class="photos-container">
@@ -12,8 +17,24 @@
           <% end %>
         <% end %>
 
+<<<<<<< HEAD
     </ul>
     <%= select_tag "amount", "<option>1</option><option>2</option><option>3</option><option>4</option>".html_safe  %>
     <%= submit_tag "Add to cart" %>
     <% end %>
+=======
+    <div>
+        <span class="price">Price: € <%= @product.price %></span>
+        <span class="sold-by">Sold by: <%= @seller %></span>
+        <p><%= @product.description %></p>
+        <label>Find more like this in:</label>
+        <ul class="list">
+            <% @product.categories.each do |category| %>
+                <li class="list-item">
+                    <%= link_to category.name, category %>
+                </li>
+            <% end %>
+        </ul>
+    </div>
+>>>>>>> be07c0fd79c26d92c5f1f568797b3325f9810474
 </div>
