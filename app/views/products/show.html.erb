@@ -1,7 +1,9 @@
 <div class="main">
+    <%= form_tag(!session[:shopping_cart] ? new_product_shopping_cart_path(@product.id) : edit_product_shopping_cart_path(@product.id), method: "get") do%>
     <h1><%= @product.name %></h1>
-    <%= image_tag(@product.image, :class => "image") %>
-    <span class="price">Price: € <%= @product.price %></span>
+    <%= image_tag(:image, :class => "image") %>
+    <%= label_tag(@product.price)
+    %>
     <label>Find more in:</label>
     <ul class="list">
         <% @product.categories.each do |category| %>
@@ -9,6 +11,8 @@
                 <%= link_to category.name, category %>
             </li>
         <% end %>
-
     </ul>
+    <%= select_tag "amount", "<option>1</option><option>2</option><option>3</option><option>4</option>".html_safe  %>
+    <%= submit_tag "Add to cart" %>
+    <% end %>
 </div>
