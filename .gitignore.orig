@@ -20,4 +20,8 @@
 # Ignore Byebug command history file.
 .byebug_history
 
+<<<<<<< HEAD
+/.idea/
+=======
 /.idea/*
+>>>>>>> 3ad5e76dac76be16d1348fcc2b8498e2b4c48a79
