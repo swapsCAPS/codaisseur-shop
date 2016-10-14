@@ -6,10 +6,11 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User.delete_all
-Category.delete_all
 Photo.delete_all
 Product.delete_all
+Category.delete_all
+User.delete_all
+
 
 buyer1 = User.create( {name: "Giulio", email: "giulio@gmail.com", role: "buyer", password: "abcd1234"} )
 buyer2 = User.create( {name: "Pim", email: "pvdh@gmail.com", role: "buyer", password: "abcd1234"} )
@@ -33,14 +34,14 @@ photo11 = Photo.create(remote_image_url: "http://res.cloudinary.com/dnwkjak4p/im
 photo12 = Photo.create(remote_image_url: "http://res.cloudinary.com/dnwkjak4p/image/upload/v1476007282/20161005-q3895_hjoc8t.png")
 
 product1 = Product.create ( {name: "product1", price: 1.00, description: "lorem ipsum", image: "http://placehold.it/350x350", user: seller1, categories: [category1], photos: [photo1] } )
-product2 = Product.create ( {name: "product2", price: 1.00, description: "lorem ipsum", image: "http://placehold.it/350x350", user: seller1, categories: [category2], photos: [photo2] } )
-product3 = Product.create ( {name: "product3", price: 1.00, description: "lorem ipsum", image: "http://placehold.it/350x350", user: seller1, categories: [category3], photos: [photo3] } )
-product4 = Product.create ( {name: "product4", price: 1.00, description: "lorem ipsum", image: "http://placehold.it/350x350", user: seller1, categories: [category1, category2, category3], photos: [photo4] } )
-product5 = Product.create ( {name: "product5", price: 1.00, description: "lorem ipsum", image: "http://placehold.it/350x350", user: seller1, categories: [category1, category3], photos: [photo5] } )
+product2 = Product.create ( {name: "product2", price: 2.00, description: "lorem ipsum", image: "http://placehold.it/350x350", user: seller1, categories: [category2], photos: [photo2] } )
+product3 = Product.create ( {name: "product3", price: 3.00, description: "lorem ipsum", image: "http://placehold.it/350x350", user: seller1, categories: [category3], photos: [photo3] } )
+product4 = Product.create ( {name: "product4", price: 4.00, description: "lorem ipsum", image: "http://placehold.it/350x350", user: seller1, categories: [category1, category2, category3], photos: [photo4] } )
+product5 = Product.create ( {name: "product5", price: 5.00, description: "lorem ipsum", image: "http://placehold.it/350x350", user: seller1, categories: [category1, category3], photos: [photo5] } )
 product6 = Product.create ( {name: "product6", price: 1.00, description: "lorem ipsum", image: "http://placehold.it/350x350", user: seller1, categories: [category1, category2], photos: [photo6] } )
-product7 = Product.create ( {name: "product7", price: 1.00, description: "lorem ipsum", image: "http://placehold.it/350x350", user: seller1, categories: [category1, category2, category3], photos: [photo7] } )
-product8 = Product.create ( {name: "product8", price: 1.00, description: "lorem ipsum", image: "http://placehold.it/350x350", user: seller1, categories: [category2, category3], photos: [photo8] } )
-product9 = Product.create ( {name: "product9", price: 1.00, description: "lorem ipsum", image: "http://placehold.it/350x350", user: seller1, categories: [category1, category2, category3], photos: [photo9] } )
+product7 = Product.create ( {name: "product7", price: 6.00, description: "lorem ipsum", image: "http://placehold.it/350x350", user: seller1, categories: [category1, category2, category3], photos: [photo7] } )
+product8 = Product.create ( {name: "product8", price: 7.00, description: "lorem ipsum", image: "http://placehold.it/350x350", user: seller1, categories: [category2, category3], photos: [photo8] } )
+product9 = Product.create ( {name: "product9", price: 17.00, description: "lorem ipsum", image: "http://placehold.it/350x350", user: seller1, categories: [category1, category2, category3], photos: [photo9] } )
 product10 = Product.create ( {name: "product10", price: 1.00, description: "lorem ipsum", image: "http://placehold.it/350x350", user: seller1, categories: [category1, category2], photos: [photo10] } )
 product11 = Product.create ( {name: "product11", price: 1.00, description: "lorem ipsum", image: "http://placehold.it/350x350", user: seller1, categories: [category1, category2, category3], photos: [photo11] } )
 product12 = Product.create ( {name: "product12", price: 1.00, description: "lorem ipsum", image: "http://placehold.it/350x350", user: seller1, categories: [category2, category3], photos: [photo12] } )
