@@ -3,7 +3,14 @@
     <h1><%= @product.name %></h1>
     <!-- For now only display first photo in photo array -->
     <!-- TODO needs expand photos button or similar -->
+
+      <!-- this show the image in the image column in product, which is added in the seed file-->
+      <div>
       <%= image_tag @product.image, class: "image" %>
+      </div>
+      <div class="panel-body">
+      </div>
+
 
       <% if @photos %>
       <% @photos.each do |photo| %>
