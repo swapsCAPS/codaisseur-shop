@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'pages/home'
 
   root to: 'categories#index'
+  resources :photos, only: [:destroy]
 
   resources :products do
     resources :shopping_carts
