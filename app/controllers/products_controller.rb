@@ -1,32 +1,39 @@
 class ProductsController < ApplicationController
+  # Set product for this instance, results in DRY code.
   before_action :set_product, only: [:show, :edit, :update]
-  before_action :authenticate_user!, except: [:show]
+  # Check if user is logged in for all actions except show
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
+    # Get all products from the model
     @products = Product.all
   end
 
   def show
-    @product = Product.find(params[:id])
-    @image = @product.image ? @product.image : "http://placehold.it/150x150"
+    # If an image exists display it, otherwise, use a placeholder
+    @photo_main = @product.photos ? @product.photos[0] : "http://placehold.it/150x150"
+    # Expose the seller to the view. Render email if the user does not have a profile yet
+    @seller = @product.user.profile ? @product.user.full_name : @product.user.email
+    # If the user who posted this product is the same as the current user, he/she may edit
+    @can_edit = @product.user == current_user
+    @photos = @product.photos
   end
 
   def new
-    # TODO set to current_user.products.build when User is ready
-    # Check if current user is a seller
+    # Make a new product inside current user
     @product = current_user.products.build
   end
 
   def edit
+    # Check if this user owns this product
     if current_user.id == @product.user.id
-    # @photos = @product.photos
+	@photos = @product.photos
     else
-    # redirect_to root_path, notice: "What do you think you are doing?"
+      redirect_to root_path, notice: "What do you think you are doing?"
     end
   end
 
   def create
-    # TODO set to current_user.products.build when User is ready
     @product = current_user.products.build(product_params)
 
 	if @product.save
@@ -34,7 +41,7 @@ class ProductsController < ApplicationController
 		@product.photos.create(image: image)
 	  end
 
-	  redirect_to edit_product_path(@product), notice: "Product added"
+	  redirect_to product_path(@product), notice: "Product added"
 	else
 	  render :new
 	end
@@ -46,7 +53,7 @@ class ProductsController < ApplicationController
 		@product.photos.create(image: image)
 	  end
 
-	  redirect_to edit_product_path(@product), notice: "Product added"
+	  redirect_to product_path(@product), notice: "Product added"
 	else
 	  render :edit
 	end
