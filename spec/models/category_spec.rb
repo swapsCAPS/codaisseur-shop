@@ -8,7 +8,7 @@ require 'rails_helper'
 RSpec.describe Category, type: :model do
 
   context "category has NO product" do
-    let(:user1) {create :user}
+    let(:user1) {create :user }
 
     let(:category1) { create :category, products: []}      # same remark as below: we need an array
 

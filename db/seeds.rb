@@ -7,8 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Photo.delete_all
-Product.delete_all
 Category.delete_all
+Product.delete_all
 User.delete_all
 
 
@@ -20,28 +20,19 @@ category1 = Category.create ( {name: "Offline"} )
 category2 = Category.create ( {name: "Online"} )
 category3 = Category.create ( {name: "Books"} )
 
-photo1 = Photo.create(remote_image_url: "http://res.cloudinary.com/dnwkjak4p/image/upload/v1476007276/28dab8dd748210a53c77bb284558a5ce5905ca6a_git9a9.jpg")
-photo2 = Photo.create(remote_image_url: "http://res.cloudinary.com/dnwkjak4p/image/upload/v1476007276/99ca8b27a84b46c373803df268167d15c3488e99_tvrfql.jpg")
-photo3 = Photo.create(remote_image_url: "http://res.cloudinary.com/dnwkjak4p/image/upload/v1476007282/20161005-q3895_hjoc8t.png")
-photo4 = Photo.create(remote_image_url: "http://res.cloudinary.com/dnwkjak4p/image/upload/v1476007276/28dab8dd748210a53c77bb284558a5ce5905ca6a_git9a9.jpg")
-photo5 = Photo.create(remote_image_url: "http://res.cloudinary.com/dnwkjak4p/image/upload/v1476007276/99ca8b27a84b46c373803df268167d15c3488e99_tvrfql.jpg")
-photo6 = Photo.create(remote_image_url: "http://res.cloudinary.com/dnwkjak4p/image/upload/v1476007282/20161005-q3895_hjoc8t.png")
-photo7 = Photo.create(remote_image_url: "http://res.cloudinary.com/dnwkjak4p/image/upload/v1476007282/20161005-q3895_hjoc8t.png")
-photo8 = Photo.create(remote_image_url: "http://res.cloudinary.com/dnwkjak4p/image/upload/v1476007282/20161005-q3895_hjoc8t.png")
-photo9 = Photo.create(remote_image_url: "http://res.cloudinary.com/dnwkjak4p/image/upload/v1476007282/20161005-q3895_hjoc8t.png")
-photo10 = Photo.create(remote_image_url: "http://res.cloudinary.com/dnwkjak4p/image/upload/v1476007282/20161005-q3895_hjoc8t.png")
-photo11 = Photo.create(remote_image_url: "http://res.cloudinary.com/dnwkjak4p/image/upload/v1476007282/20161005-q3895_hjoc8t.png")
-photo12 = Photo.create(remote_image_url: "http://res.cloudinary.com/dnwkjak4p/image/upload/v1476007282/20161005-q3895_hjoc8t.png")
 
-product1 = Product.create ( {name: "product1", price: 1.00, description: "lorem ipsum", image: "http://placehold.it/350x350", user: seller1, categories: [category1], photos: [photo1] } )
-product2 = Product.create ( {name: "product2", price: 2.00, description: "lorem ipsum", image: "http://placehold.it/350x350", user: seller1, categories: [category2], photos: [photo2] } )
-product3 = Product.create ( {name: "product3", price: 3.00, description: "lorem ipsum", image: "http://placehold.it/350x350", user: seller1, categories: [category3], photos: [photo3] } )
-product4 = Product.create ( {name: "product4", price: 4.00, description: "lorem ipsum", image: "http://placehold.it/350x350", user: seller1, categories: [category1, category2, category3], photos: [photo4] } )
-product5 = Product.create ( {name: "product5", price: 5.00, description: "lorem ipsum", image: "http://placehold.it/350x350", user: seller1, categories: [category1, category3], photos: [photo5] } )
-product6 = Product.create ( {name: "product6", price: 1.00, description: "lorem ipsum", image: "http://placehold.it/350x350", user: seller1, categories: [category1, category2], photos: [photo6] } )
-product7 = Product.create ( {name: "product7", price: 6.00, description: "lorem ipsum", image: "http://placehold.it/350x350", user: seller1, categories: [category1, category2, category3], photos: [photo7] } )
-product8 = Product.create ( {name: "product8", price: 7.00, description: "lorem ipsum", image: "http://placehold.it/350x350", user: seller1, categories: [category2, category3], photos: [photo8] } )
-product9 = Product.create ( {name: "product9", price: 17.00, description: "lorem ipsum", image: "http://placehold.it/350x350", user: seller1, categories: [category1, category2, category3], photos: [photo9] } )
-product10 = Product.create ( {name: "product10", price: 1.00, description: "lorem ipsum", image: "http://placehold.it/350x350", user: seller1, categories: [category1, category2], photos: [photo10] } )
-product11 = Product.create ( {name: "product11", price: 1.00, description: "lorem ipsum", image: "http://placehold.it/350x350", user: seller1, categories: [category1, category2, category3], photos: [photo11] } )
-product12 = Product.create ( {name: "product12", price: 1.00, description: "lorem ipsum", image: "http://placehold.it/350x350", user: seller1, categories: [category2, category3], photos: [photo12] } )
+product1 = Product.create ( {name: "product1", price: 1.00, description: "lorem ipsum", image: "https://res-4.cloudinary.com/pvdh/image/upload/c_scale,h_350,w_350/v1476440746/teach-english-uz_rd4soi.jpg", user: seller1, categories: [category1] } )
+product2 = Product.create ( {name: "product2", price: 2.00, description: "lorem ipsum", image: "https://res-5.cloudinary.com/pvdh/image/upload/c_scale,h_350,w_350/v1476440753/studying_fip1uo.jpg", user: seller1, categories: [category2] } )
+product3 = Product.create ( {name: "product3", price: 3.00, description: "lorem ipsum", image: "https://res-4.cloudinary.com/pvdh/image/upload/c_scale,h_350,w_350/v1476440744/mZLDnnoSm6j7c8iSKiag_51qiS5gf-HL._SX337_BO1_204_203_200__nadevf.jpg", user: seller1, categories: [category3] } )
+product4 = Product.create ( {name: "product4", price: 4.00, description: "lorem ipsum", image: "https://res-1.cloudinary.com/pvdh/image/upload/c_scale,h_350,w_350/v1476440741/images_2_mpmrpw.jpg", user: seller1, categories: [category1, category2, category3] } )
+product5 = Product.create ( {name: "product5", price: 5.00, description: "lorem ipsum", image: "https://res-5.cloudinary.com/pvdh/image/upload/c_scale,h_350,w_350/v1476440740/images_1_omcysk.jpg", user: seller1, categories: [category1, category3] } )
+product6 = Product.create ( {name: "product6", price: 6.00, description: "lorem ipsum", image: "https://res-1.cloudinary.com/pvdh/image/upload/c_scale,h_350,w_350/v1476440740/images_sbvyyl.jpg", user: seller1, categories: [category1, category2] } )
+product7 = Product.create ( {name: "product7", price: 7.00, description: "lorem ipsum", image: "https://res-4.cloudinary.com/pvdh/image/upload/c_scale,h_350,w_350/v1476440740/download_2_qtqoqq.jpg", user: seller1, categories: [category1, category2, category3] } )
+product8 = Product.create ( {name: "product8", price: 17.00, description: "lorem ipsum", image: "https://res-1.cloudinary.com/pvdh/image/upload/c_scale,h_350,w_350/v1476440740/download_1_nighk0.jpg", user: seller1, categories: [category2, category3] } )
+product9 = Product.create ( {name: "product9", price: 1.00, description: "lorem ipsum", image: "https://res-2.cloudinary.com/pvdh/image/upload/c_scale,h_350,w_350/v1476440739/download_k2bjie.png", user: seller1, categories: [category1, category2, category3] } )
+product10 = Product.create ( {name: "product10", price: 3.00, description: "lorem ipsum", image: "https://res-2.cloudinary.com/pvdh/image/upload/c_scale,h_350,w_350/v1476440739/download_myywvs.jpg", user: seller1, categories: [category1, category2] } )
+product11 = Product.create ( {name: "product11", price: 4.00, description: "lorem ipsum", image: "https://res-2.cloudinary.com/pvdh/image/upload/c_scale,h_350,w_350/v1476440739/download_k2bjie.png", user: seller1, categories: [category1, category2, category3] } )
+product12 = Product.create ( {name: "product12", price: 9.00, description: "lorem ipsum", image: "https://res-3.cloudinary.com/pvdh/image/upload/c_scale,h_350,w_350/v1476440759/good-study-habits_rdr4lx.png", user: seller1, categories: [category2, category3] } )
+
+
+#  unused photo "https://res-2.cloudinary.com/pvdh/image/upload/c_scale,h_350,w_350/v1476440749/crop380w_istock_000002193842xsmall-books_jil6v3.jpg"
