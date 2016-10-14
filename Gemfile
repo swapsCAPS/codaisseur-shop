@@ -1,5 +1,12 @@
 source 'https://rubygems.org'
 
+
+ruby '2.3.1'
+
+# gems for uploading images and clouding them somewhere else
+gem 'carrierwave'
+gem 'cloudinary'
+
 # Use rspec
 group :development, :test do
   gem 'rspec-rails', '~> 3.5', '>= 3.5.2'
@@ -68,3 +75,5 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+gem 'rails_12factor', group: :production
