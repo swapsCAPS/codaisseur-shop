@@ -1,4 +1,5 @@
 <div class="main">
+    <%= form_tag(!session[:shopping_cart] ? new_product_shopping_cart_path(@product.id) : edit_product_shopping_cart_path(@product.id), method: "get") do%>
     <h1><%= @product.name %></h1>
     <!-- For now only display first photo in photo array -->
     <!-- TODO needs expand photos button or similar -->
@@ -14,4 +15,7 @@
             </li>
         <% end %>
     </ul>
+    <%= select_tag "amount", "<option>1</option><option>2</option><option>3</option><option>4</option>".html_safe  %>
+    <%= submit_tag "Add to cart" %>
+    <% end %>
 </div>
