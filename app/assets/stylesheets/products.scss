@@ -8,7 +8,51 @@
     flex-direction: column;
 }
 
+.title {
+    margin-bottom: 24px;
+}
+
+.title .btn {
+    margin-left: 12px;
+    margin-bottom: 6px;
+}
+
+.photos-container {
+    overflow-x: scroll;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+}
+
 .image {
-    width: 150px;
-    height: 150px;
+    overflow: hidden;
+    margin-right: 24px;
+    width: 300px;
+    object-fit: cover;
+    height: 300px;
+}
+
+.info-container {
+    margin-top: 24px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.info {
+    width: 300px;
+}
+
+.info-container .categories {
+    margin-left: 24px;
+    margin-top: 0px;
+    width: 300px;
+}
+
+.add-to-shopping-cart {
+    width: 300px;
+    margin-left: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
 }
