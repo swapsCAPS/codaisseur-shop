@@ -56,10 +56,11 @@
                       <% if current_user.has_profile? %>
                       <li><%= link_to "Show Profile", current_user.profile %></li>
                       <li role="separator" class="divider"></li>
+                      <li><%= link_to "Edit Profile", edit_profile_path(current_user.profile) %></li>
                       <% else %>
                       <li><%= link_to "Create Profile", new_profile_path %></li>
                       <% end %>
-                      <li><%= link_to "Edit Profile", edit_profile_path(current_user.profile) %></li>
+
                       <li><%= link_to "Edit Password", edit_user_registration_path %></li>
                       <li role="separator" class="divider"></li>
                       <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
