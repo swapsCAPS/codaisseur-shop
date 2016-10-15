@@ -1,0 +1,23 @@
+<div class="main">
+  <% if @shopping_cart %>
+  <%= form_tag do %>
+    <table style="width:100%">
+      <tr>
+        <th>Name</th>
+        <th>Amount</th>
+        <th>Price</th>
+      </tr>
+    <% @shopping_cart.each do |id, amount| %>
+      <% product = Product.find(id.to_i) %>
+      <tr>
+        <td><%= product.name %></td>
+        <td><%= amount %></td>
+        <td><%= product.price%></td>
+      </tr>
+    <% end %>
+    </table>
+    <% end %>
+  <% else %>
+    <h3> No item in the Shopping cart </h3>
+  <% end %>
+</div>

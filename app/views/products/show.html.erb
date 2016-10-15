@@ -1,43 +1,46 @@
 <div class="main">
-    <h1 class="title">
-        <%= @product.name %><%= @can_edit ? link_to("Edit product", edit_product_path, class: "btn btn-default") : "" %>
-        <%= @can_edit ? link_to("Delete product", product_path( @product ), class: "btn btn-default", method: :delete, data: { confirm: "Are you sure?" }) : "" %>
-    </h1>
 
-    <!-- For now only display first photo in photo array -->
-    <!-- TODO needs expand photos button or similar -->
-    <div class="photos-container">
-        <div>
-            <%= image_tag @product.image, class: "image" %>
-        </div>
-        <% if @photos %>
-          <% @photos.each do |photo| %>
-              <div>
-                <%= image_tag photo.image, class: "image" %>
-              </div>
+      <%= form_tag(!session[:shopping_cart] ? new_shopping_cart_path : edit_shopping_cart_path(@product.id), method: "get") do%>
+      <h1 class="title">
+          <%= @product.name %><%= @can_edit ? link_to("Edit product", edit_product_path, class: "btn btn-default") : "" %>
+          <%= @can_edit ? link_to("Delete product", product_path( @product ), class: "btn btn-default", method: :delete, data: { confirm: "Are you sure?" }) : "" %>
+      </h1>
+      <input type="text" hidden="hidden" name = "product_id" value ="<%= @product.id %>" >
+      <!-- For now only display first photo in photo array -->
+      <!-- TODO needs expand photos button or similar -->
+      <div class="photos-container">
+          <div>
+              <%= image_tag @product.image, class: "image" %>
+          </div>
+          <% if @photos %>
+            <% @photos.each do |photo| %>
+                <div>
+                  <%= image_tag photo.image, class: "image" %>
+                </div>
+            <% end %>
           <% end %>
-        <% end %>
-    </div>
+      </div>
 
-    <div class="info-container">
-        <div class="info">
-            <h4>Price: € <%= @product.price %></h4>
-            <h5>Sold by: <%= @seller %></h5>
-            <p><%= @product.description %></p>
-        </div>
-        <div class="categories">
-            <label>Find more like this in:</label>
-            <ul class="list">
-                <% @product.categories.each do |category| %>
-                    <li class="list-item">
-                        <%= link_to category.name, category %>
-                    </li>
-                <% end %>
-            </ul>
-        </div>
-        <div class="add-to-shopping-cart">
-            <%= select_tag "amount", "<option>1</option><option>2</option><option>3</option><option>4</option>".html_safe, class: "btn btn-default"  %>
-            <%= submit_tag "Add to cart", class: "btn btn-default" %>
-        </div>
-    </div>
+      <div class="info-container">
+          <div class="info">
+              <h4>Price: € <%= @product.price %></h4>
+              <h5>Sold by: <%= @seller %></h5>
+              <p><%= @product.description %></p>
+          </div>
+          <div class="categories">
+              <label>Find more like this in:</label>
+              <ul class="list">
+                  <% @product.categories.each do |category| %>
+                      <li class="list-item">
+                          <%= link_to category.name, category %>
+                      </li>
+                  <% end %>
+              </ul>
+          </div>
+          <div class="add-to-shopping-cart">
+              <%= select_tag "amount", "<option>1</option><option>2</option><option>3</option><option>4</option>".html_safe, class: "btn btn-default"  %>
+              <%= submit_tag "Add to cart", class: "btn btn-default" %>
+          </div>
+      </div>
+    <% end %>
 </div>
