@@ -25,4 +25,3 @@ production:
   database: codaisseur-shop_production
   username: codaisseur-shop
   password: <%= ENV['CODAISSEURBNB_DATABASE_PASSWORD'] %>
-
