@@ -34,7 +34,7 @@ main{
 }
 .categories .category{
   width: 100%;
-  height: 210px;
+  height: auto;
   overflow-y: visible;
   overflow-x: scroll;
   align-items: flex-start;
@@ -55,12 +55,9 @@ main{
   position: relative;
   z-index: 100;
 }
-.categories .category .product{
-
-}
 
 .categories .category .product h3{
-  color: rgb(55, 111, 54);
+  color: rgb(0, 0, 0);
 }
 
 .category{

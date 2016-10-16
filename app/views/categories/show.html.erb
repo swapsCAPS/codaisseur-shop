@@ -1,15 +1,23 @@
 <main>
-    <div class="category container">
-        <h1><%= @category.name %></h1>
-        <% products_of_category = @products.select{|product| product.categories.include? @category}
-  products_of_category.each do |product| %>
-        <a href="<%= product_path(product.id) %>">
-            <div class="product container">
-                <!-- printing the name of each product -->
-                <h1><%= product.name %></h1>
-
+    <div class="container">
+        <div class="col-sm-12">
+            <h1><%= @category.name %></h1>
+            <% @products.each do |product| %>
+            <div class="bs-calltoaction bs-calltoaction-default <%= @category.name.downcase %>">
+                <div class="row">
+                    <div class="col-md-9 cta-contents">
+                        <h1 class="cta-title"><%= product.name %></h1>
+                        <div class="cta-desc">
+                            <p><%= product.description %></p>
+                            <p><%= number_to_currency(product.price, unit: '€') %></p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 cta-button">
+                        <a href="<%= product_path(product.id) %>" class="btn btn-lg btn-block btn-default">Learn More</a>
+                    </div>
+                </div>
             </div>
-        </a>
-        <% end %>
+            <% end %>
+        </div>
     </div>
 </main>
