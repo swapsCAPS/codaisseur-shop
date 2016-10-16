@@ -18,11 +18,11 @@
 
 $(function(){
 
-    $('#show').on('click',function(){
+$(document).on('click', '#show', function(event) {
         $('.card-reveal').slideToggle('slow');
     });
 
-    $('.card-reveal .close').on('click',function(){
+$(document).on('click', '.card-reveal .close', function(event) {
         $('.card-reveal').slideToggle('slow');
     });
 });
