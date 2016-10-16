@@ -18,9 +18,11 @@
                 </div>
                 <!-- card content -->
                 <div class="card-action">
-                    <% @product.categories.each do |category| %>
-                    <%= link_to category.name, category %>
-                    <% end %>
+                    <div>
+                      <% @product.categories.each do |category| %>
+                      <%= link_to category.name, category %>
+                      <% end %>
+                    </div>
                     <%= @can_edit ? link_to("Edit product", edit_product_path, class: "btn btn-default") : "" %>
                     <%= @can_edit ? link_to("Delete product", product_path( @product ), class: "btn btn-default", method: :delete, data: { confirm: "Are you sure?" }) : "" %>
                     <div class="add-to-shopping-cart">
