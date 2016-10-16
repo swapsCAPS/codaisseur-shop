@@ -9,7 +9,7 @@
       </tr>
     <% @shopping_cart.each do |id, amount| %>
       <% product = Product.find(id.to_i) %>
-      <tr>
+      <tr class=" <%= product.categories[0].name.downcase %>">
         <td><%= product.name %></td>
         <td><%= amount %></td>
         <td><%= product.price%></td>

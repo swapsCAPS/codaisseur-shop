@@ -57,13 +57,13 @@
     justify-content: end;
 }
 
-.bs-calltoaction.bs-calltoaction-default.offline, .product.offline{
+.bs-calltoaction.bs-calltoaction-default.offline, .product.offline, .offline{
   background-color: rgb(139, 89, 222);
 }
-.bs-calltoaction.bs-calltoaction-default.online, .product.online{
+.bs-calltoaction.bs-calltoaction-default.online, .product.online, .online{
   background-color: rgb(13, 149, 135);
 }
-.bs-calltoaction.bs-calltoaction-default.books, .product.books{
+.bs-calltoaction.bs-calltoaction-default.books, .product.books, .books{
   background-color: rgb(151, 238, 158);
 }
 
