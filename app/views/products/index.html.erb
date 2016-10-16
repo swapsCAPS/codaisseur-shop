@@ -1,6 +1,7 @@
 <div class="container">
     <div class="col-sm-12">
-        <% @products.order(:price).each do |product| %>
+    <% if @products != [] %>
+        <% @products.each do |product| %>
         <div class="bs-calltoaction bs-calltoaction-default <%= product.categories[0].name.downcase %>">
             <div class="row">
                 <div class="col-md-9 cta-contents">
@@ -15,6 +16,10 @@
                 </div>
             </div>
         </div>
-      <% end %>
+        <% end %>
+  <% else %>
+
+    <h1> No products match you search </h1>
+  <% end %>
     </div>
 </div>

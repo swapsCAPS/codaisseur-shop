@@ -6,7 +6,11 @@ class ProductsController < ApplicationController
 
   def index
     # Get all products from the model
-    @products = Product.all
+    if params[:search]
+      @products = Product.search(params[:search]).order_by_price
+    else
+      @products = Product.all
+    end
   end
 
   def show
