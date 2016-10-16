@@ -1,7 +1,25 @@
-<% @products.order(:price).each do |product| %>
-  <%= link_to product do %>
-    <h4><%= product.name %> </h4>
-    <h6><%= number_to_currency(product.price, unit: '€') %></h6>
+<div class="container">
+    <div class="col-sm-12">
+    <% if @products != [] %>
+        <% @products.each do |product| %>
+        <div class="bs-calltoaction bs-calltoaction-default <%= product.categories[0].name.downcase %>">
+            <div class="row">
+                <div class="col-md-9 cta-contents">
+                    <h1 class="cta-title"><%= product.name %></h1>
+                    <div class="cta-desc">
+                        <p><%= product.description %></p>
+                        <p><%= number_to_currency(product.price, unit: '€') %></p>
+                    </div>
+                </div>
+                <div class="col-md-3 cta-button">
+                    <a href="<%= product_path(product.id) %>" class="btn btn-lg btn-block btn-default">Learn More</a>
+                </div>
+            </div>
+        </div>
+        <% end %>
+  <% else %>
+
+    <h1> No products match you search </h1>
   <% end %>
-<% end %>
-<hr>
+    </div>
+</div>

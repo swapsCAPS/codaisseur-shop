@@ -16,9 +16,9 @@ buyer1 = User.create( {name: "Giulio", email: "giulio@gmail.com", role: "buyer",
 buyer2 = User.create( {name: "Pim", email: "pvdh@gmail.com", role: "buyer", password: "abcd1234"} )
 seller1 = User.create( {name: "Robert", email: "robert@gmail.com", role: "seller", password: "abcd1234"} )
 
-category1 = Category.create ( {name: "Offline", color: "red"} )
-category2 = Category.create ( {name: "Online", color: "blue"} )
-category3 = Category.create ( {name: "Books", color: "green"} )
+category1 = Category.create ( {name: "Offline"} )
+category2 = Category.create ( {name: "Online"} )
+category3 = Category.create ( {name: "Books"} )
 
 
 product1 = Product.create ( {name: "French Lesson", price: 1.00, description: "lorem ipsum", image: "https://res-4.cloudinary.com/pvdh/image/upload/v1476440746/teach-english-uz_rd4soi.jpg", user: seller1, categories: [category1] } )

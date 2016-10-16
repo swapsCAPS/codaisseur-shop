@@ -64,9 +64,9 @@
                 </li>
             </ul>
             <div class="collapse nav navbar-nav nav-collapse slide-down" id="nav-collapse3">
-                <form class="navbar-form navbar-right" role="search">
+                <form class="navbar-form navbar-right" action="<%= products_path %>" role="search">
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search"/>
+                        <input type="text" class="form-control" id="search" name="search" placeholder="Search"/>
                     </div>
                     <button type="submit" class="btn btn-danger">
                         <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
