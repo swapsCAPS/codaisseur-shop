@@ -23,9 +23,9 @@ ActiveRecord::Schema.define(version: 20161013141047) do
 
   create_table "categories_products", id: false, force: :cascade do |t|
     t.integer "product_id"
-    t.integer "categories_id"
+    t.integer "categories_id"    # PIM what is this line for?
     t.integer "category_id"
-    t.index ["categories_id"], name: "index_categories_products_on_categories_id", using: :btree
+    t.index ["categories_id"], name: "index_categories_products_on_categories_id", using: :btree    # PIM what is this line for?
     t.index ["category_id"], name: "index_categories_products_on_category_id", using: :btree
     t.index ["product_id"], name: "index_categories_products_on_product_id", using: :btree
   end
@@ -78,7 +78,7 @@ ActiveRecord::Schema.define(version: 20161013141047) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
-  add_foreign_key "categories_products", "categories"
+  add_foreign_key "categories_products", "categories"         # PIM this one is not used in rooms_themes in the bnb project. Why we have it here?
   add_foreign_key "photos", "products"
   add_foreign_key "products", "users"
   add_foreign_key "profiles", "users"
