@@ -1,22 +1,27 @@
 class ShoppingCartsController < ApplicationController
 
+  def index
+    if session[:shopping_cart]
+      @shopping_cart = session[:shopping_cart]
+    else
+      @shopping_cart = {}
+    end
+  end
+
   def new
-    product = Product.find(params[:product_id])
-    amount = params[:amount]
-    session[:shopping_cart] = {}
-    session[:shopping_cart][:products] = []
-    session[:shopping_cart][:amounts] = []
-    session[:shopping_cart][:products] << product
-    session[:shopping_cart][:amounts] << amount
-    redirect_to product_path(product), notice: "Product successfully added to the Shopping cart"
+    session[:shopping_cart] = {params[:product_id].to_s => params[:amount].to_i}
+    redirect_to shopping_carts_path, notice: "Product successfully added to the Shopping cart"
   end
 
   def edit
-    product = Product.find(params[:product_id])
-    amount = params[:amount]
-    session[:shopping_cart][:products.to_s] << product
-    session[:shopping_cart][:amounts.to_s] << amount
-    redirect_to product_path(product), notice: "Product successfully added to the Shopping cart"
+    session[:shopping_cart].merge!({params[:product_id].to_s => params[:amount].to_i}) {|key, v1, v2| v1 + v2}
+    redirect_to shopping_carts_path, notice: "Product successfully added to the Shopping cart"
   end
 
+  def destroy
+    if session[:shopping_cart]
+      session[:shopping_cart] = {}
+      redirect_to shopping_carts_path
+    end
+  end
 end

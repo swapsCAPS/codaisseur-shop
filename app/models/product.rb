@@ -18,4 +18,8 @@ class Product < ApplicationRecord
   def self.order_by_price
     order(:price)
   end
+
+  def self.search search
+    where("name iLIKE ?", "%#{search}%")
+  end
 end

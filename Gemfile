@@ -1,10 +1,6 @@
-source 'https://rubygems.org'
-
-ruby '2.3.1'
-
-# gems for uploading images and clouding them somewhere else
-gem 'carrierwave'
-gem 'cloudinary'
+# source 'https://rubygems.org'
+#
+# ruby '2.3.1'
 
 # Use rspec
 group :development, :test do

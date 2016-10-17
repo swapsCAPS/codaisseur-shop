@@ -10,7 +10,7 @@
         <!-- select the products that include the current category -->
         <% category.products.each do |product| %>
         <a href="<%= product_path(product.id) %>">
-            <div class="product wrapper">
+            <div class="product wrapper <%= category.name.downcase %>">
                 <!-- printing the name of each product -->
                 <h3><%= product.name %></h3>
 

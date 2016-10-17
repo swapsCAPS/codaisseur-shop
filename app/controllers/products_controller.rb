@@ -6,7 +6,11 @@ class ProductsController < ApplicationController
 
   def index
     # Get all products from the model
-    @products = Product.all
+    if params[:search]
+      @products = Product.search(params[:search]).order_by_price
+    else
+      @products = Product.all
+    end
   end
 
   def show
@@ -66,7 +70,7 @@ class ProductsController < ApplicationController
       @product.destroy
       redirect_to products_path, notice: "Teh product is gawn!"
     else
-      redirect_to product_path, notice: "What do you think you are doing?"
+      redirect_to product_path, alert: "What do you think you are doing?"
     end
 
   end

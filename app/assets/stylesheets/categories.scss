@@ -12,10 +12,6 @@
   margin: 0;
 }
 
-main{
-  width: 100%;
-  overflow-y: hidden;
-}
 .categories{
   width: 75%;
   height: auto;
@@ -26,15 +22,15 @@ main{
 .categories a{
   width: 100%;
   display: block;
-  border-bottom: 1px solid rgb(55, 111, 54);
+  border-bottom: 1px solid rgb(0, 0, 0);
   text-decoration: none;
 }
 .categories h1{
-  color: rgb(55, 111, 54);
+  color: rgb(0, 0, 0);
 }
 .categories .category{
   width: 100%;
-  height: 210px;
+  height: auto;
   overflow-y: visible;
   overflow-x: scroll;
   align-items: flex-start;
@@ -55,12 +51,9 @@ main{
   position: relative;
   z-index: 100;
 }
-.categories .category .product{
-
-}
 
 .categories .category .product h3{
-  color: rgb(55, 111, 54);
+  color: rgb(0, 0, 0);
 }
 
 .category{
@@ -73,8 +66,8 @@ main{
 }
 .product{
   display: inline-block;
-  width: 200px;
-  min-height: 200px;
+  width: 250px;
+  min-height: 250px;
   margin: 10px;
   position: relative;
   background: rgb(154, 221, 146);
