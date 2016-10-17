@@ -21,9 +21,27 @@ h1, h2, h3, h4 {
   z-index: 2000;
   top: 50px;
 }
-
+.panel{
+  width: 75%;
+  margin: 0 auto;
+}
 .panel.panel-success .panel-heading{
   background-color: rgba(167, 227, 152, 0.75);
+}
+.text-center {
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+.text-center b{
+  margin-left: 5px;
+}
+.alert{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 70px;
 }
 // .navbar, .dropdown-menu, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus, .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:hover{
 //   background: rgb(32, 61, 29);
@@ -97,8 +115,4 @@ h1, h2, h3, h4 {
     .navbar.navbar-inverse .nav-collapse.in.slide-down {
         transform: translate(0px,0px);
     }
-}
-
-.alert{
-  margin-top: 70px;
 }
