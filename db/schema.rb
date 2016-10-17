@@ -23,9 +23,9 @@ ActiveRecord::Schema.define(version: 20161013141047) do
 
   create_table "categories_products", id: false, force: :cascade do |t|
     t.integer "product_id"
-    t.integer "categories_id"    # PIM what is this line for?
+    t.integer "categories_id"    # PIM what is this line for?  pls compare with rooms_themes in bnb
     t.integer "category_id"
-    t.index ["categories_id"], name: "index_categories_products_on_categories_id", using: :btree    # PIM what is this line for?
+    t.index ["categories_id"], name: "index_categories_products_on_categories_id", using: :btree    # PIM what is this line for?  pls compare with rooms_themes in bnb
     t.index ["category_id"], name: "index_categories_products_on_category_id", using: :btree
     t.index ["product_id"], name: "index_categories_products_on_product_id", using: :btree
   end
@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 20161013141047) do
     t.integer  "user_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.string   "image"
+    t.string   "image"                            # PIM what is this line for? pls compare with rooms_themes in bnb
     t.index ["user_id"], name: "index_products_on_user_id", using: :btree
   end
 
