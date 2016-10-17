@@ -1,3 +1,9 @@
+main{
+  // margin-top: 50px;
+  width: 100%;
+  overflow-y: hidden;
+}
+
 h1, h2, h3, h4 {
     margin: 0;
     padding: 0;
@@ -14,6 +20,10 @@ h1, h2, h3, h4 {
 .dropdown-menu{
   z-index: 2000;
   top: 50px;
+}
+
+.panel.panel-success .panel-heading{
+  background-color: rgba(167, 227, 152, 0.75);
 }
 // .navbar, .dropdown-menu, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus, .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:hover{
 //   background: rgb(32, 61, 29);
@@ -89,6 +99,6 @@ h1, h2, h3, h4 {
     }
 }
 
-.notice, .alert{
+.alert{
   margin-top: 70px;
 }
