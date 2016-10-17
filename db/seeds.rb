@@ -34,5 +34,11 @@ product10 = Product.create ( {name: "Beginner Illustrator", price: 3.00, descrip
 product11 = Product.create ( {name: "How to use Sketch", price: 4.00, description: "lorem ipsum", image: "https://res-2.cloudinary.com/pvdh/image/upload/v1476440739/download_k2bjie.png", user: seller1, categories: [category1, category2, category3] } )
 product12 = Product.create ( {name: "Equesion 2nd Level", price: 9.00, description: "lorem ipsum", image: "https://res-3.cloudinary.com/pvdh/image/upload/v1476440759/good-study-habits_rdr4lx.png", user: seller1, categories: [category2, category3] } )
 
+# Create some fake line items
+line_item1 = LineItem.create ( {amount: 1, product: product1} )
+line_item2 = LineItem.create ( {amount: 2, product: product2} )
+
+# Create a fake order
+order1 = Order.create ( { order_number: 1, payment_method: Order::PAYMENT_METHODS[0], user: buyer1, line_items: [line_item1, line_item2] } )
 
 #  unused photo "https://res-2.cloudinary.com/pvdh/image/upload/c_scale,h_350,w_350/v1476440749/crop380w_istock_000002193842xsmall-books_jil6v3.jpg"

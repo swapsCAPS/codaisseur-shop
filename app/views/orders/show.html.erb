@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="col-sm-12">
+      <h1 class="cta-title">Order # <%= @order.order_number %></h1>
+        <% @line_items.each do |li| %>
+            <div class="row">
+                <div class="col-md-9 cta-contents">
+                  <h1 class="cta-title"><%= "#{li.amount} #{li.product.name} #{li.get_total}" %></h1>
+                    <div class="cta-desc">
+                    </div>
+                </div>
+                <div class="col-md-3 cta-button">
+                </div>
+            </div>
+        <% end %>
+    </div>
+</div>
+
+

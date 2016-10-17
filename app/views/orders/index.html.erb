@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="col-sm-12">
+    <% if @orders != [] %>
+        <% @orders.each do |order| %>
+        <div class="bs-calltoaction bs-calltoaction-default <%= order %>">
+            <div class="row">
+                <div class="col-md-9 cta-contents">
+                    <h1 class="cta-title"><%= link_to "#{order.order_number} #{order.payment_method}", order %></h1>
+                    <div class="cta-desc">
+                    </div>
+                </div>
+                <div class="col-md-3 cta-button">
+                </div>
+            </div>
+        </div>
+        <% end %>
+  <% else %>
+
+    <h1>You don't have any orders yet</h1>
+  <% end %>
+    </div>
+</div>
+
