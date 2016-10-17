@@ -35,7 +35,6 @@ category3 = Category.create ( {name: "Books"} )
 
 
 
-
 photo1 = Photo.create(remote_image_url: "https://res-5.cloudinary.com/pvdh/image/upload/v1476440740/images_1_omcysk.jpg")
 photo2 = Photo.create(remote_image_url: "https://res-1.cloudinary.com/pvdh/image/upload/v1476440740/images_sbvyyl.jpg")
 photo3 = Photo.create(remote_image_url: "https://res-1.cloudinary.com/pvdh/image/upload/v1476440740/download_1_nighk0.jpg")
