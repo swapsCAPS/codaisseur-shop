@@ -9,4 +9,8 @@ $(document).ready(function(){
             $(this).toggleClass('open');
         }
     );
+
+    $(".dropdown-toggle.shopping_cart").click(function(){
+      window.location.href = "/shopping_carts";
+    });
 });
