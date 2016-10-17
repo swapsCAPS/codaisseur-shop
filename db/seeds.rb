@@ -7,6 +7,19 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Photo.delete_all
+
+Product.all.each do |product|
+  product.categories.each do |category|
+    product.categories.delete(category)
+  end
+end
+
+Category.all.each do |category|
+  category.products.each do |product|
+    category.products.delete(product)
+  end
+end
+
 Category.delete_all
 Product.delete_all
 User.delete_all

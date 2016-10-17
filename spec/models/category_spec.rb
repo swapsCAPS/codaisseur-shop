@@ -12,7 +12,7 @@ RSpec.describe Category, type: :model do
 
     let(:category1) { create :category, products: []}      # same remark as below: we need an array
 
-    it "has category" do
+    it "has NO product" do
       expect(category1.products).to eq([])
     end
   end
