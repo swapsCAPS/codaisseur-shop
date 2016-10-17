@@ -10,7 +10,7 @@ RSpec.describe User, type: :model do
 
       expect(user.errors).not_to have_key(:name)
       expect(user.errors).not_to have_key(:email)
-      # role
     end
   end
+
 end
