@@ -1,6 +1,15 @@
 FactoryGirl.define do
 
   factory :product do
+<<<<<<< HEAD
+    # name      { Faker::Pokemon.name }
+
+    #description       { Faker::Lorem.sentence(40) }
+    #address           { Faker::Address.city }
+
+    #price             { Faker::Commerce.price }           { Faker::Commerce.price }
+
+=======
     name      { Faker::Pokemon.name }
 
     description       { Faker::Lorem.sentence(40) }
@@ -8,6 +17,7 @@ FactoryGirl.define do
 
     price             { Faker::Commerce.price }
 
+>>>>>>> master
     #trait :active do
     #  active true
     #end

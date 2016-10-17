@@ -21,6 +21,7 @@ h1, h2, h3, h4 {
   z-index: 2000;
   top: 50px;
 }
+
 .panel{
   width: 75%;
   margin: 0 auto;
@@ -42,6 +43,7 @@ h1, h2, h3, h4 {
   justify-content: center;
   align-items: center;
   margin-top: 70px;
+  margin-bottom: 10px;
 }
 // .navbar, .dropdown-menu, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus, .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:hover{
 //   background: rgb(32, 61, 29);
@@ -58,6 +60,8 @@ h1, h2, h3, h4 {
 // }
 
 .navbar-brand { position: relative; z-index: 2; }
+
+.navbar-nav.navbar-right{margin-right: 15px;}
 
 .navbar-nav.navbar-right .btn { position: relative; z-index: 2; padding: 4px 20px; margin: 10px auto; transition: transform 0.3s; }
 
@@ -90,6 +94,11 @@ h1, h2, h3, h4 {
     transform: translate(0px,0px);
 }
 
+.shopping_cart.nav.navbar-nav.navbar-right{
+    position: absolute;
+    right: -60px;
+}
+
 
 @media screen and (max-width: 768px) {
     .navbar .navbar-collapse .navbar-right > li:last-child { padding-left: 15px; padding-right: 15px; }
@@ -115,4 +124,12 @@ h1, h2, h3, h4 {
     .navbar.navbar-inverse .nav-collapse.in.slide-down {
         transform: translate(0px,0px);
     }
+
+    .shopping_cart.nav.navbar-nav.navbar-right{
+        position: absolute;
+        top: -53px;
+        right: 50px;
+    }
+
+    .navbar-nav.navbar-right{margin-right: 0;}
 }
