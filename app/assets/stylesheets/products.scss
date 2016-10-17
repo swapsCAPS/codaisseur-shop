@@ -1,6 +1,8 @@
 // Place all the styles related to the Products controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,300);
+@import url(//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css);
 
 .main {
     margin: 24px;
@@ -8,7 +10,289 @@
     flex-direction: column;
 }
 
+.title {
+    margin-bottom: 24px;
+}
+
+.title .btn {
+    margin-left: 12px;
+    margin-bottom: 6px;
+}
+
+.photos-container {
+    overflow-x: scroll;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+}
+
 .image {
+    overflow: hidden;
+    margin-right: 24px;
+    width: 300px;
+    object-fit: cover;
+    height: 300px;
+}
+
+.info-container {
+    margin-top: 24px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.info {
+    width: 300px;
+}
+
+.info-container .categories {
+    margin-left: 24px;
+    margin-top: 0px;
+    width: 300px;
+}
+
+.add-to-shopping-cart {
     width: 150px;
-    height: 150px;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+}
+.add-to-shopping-cart input[type="number"]{
+  text-align: center;
+    width: 30px;
+    height: 30px;
+}
+
+.bs-calltoaction.bs-calltoaction-default.offline, .product.offline, .offline{
+  background-color: rgb(139, 89, 222);
+}
+.bs-calltoaction.bs-calltoaction-default.online, .product.online, .online{
+  background-color: rgb(13, 149, 135);
+}
+.bs-calltoaction.bs-calltoaction-default.books, .product.books, .books{
+  background-color: rgb(151, 238, 158);
+}
+
+.bs-calltoaction.bs-calltoaction-default .btn-default{
+  background-color: rgba(255,255,255, 0.1);
+}
+.bs-calltoaction.bs-calltoaction-default .btn-default:hover{
+  background-color: rgba(0,0,0, 0.1);
+}
+
+
+// Bootstraap Product Index
+
+.bs-calltoaction{
+    position: relative;
+    width:auto;
+    padding: 15px 25px;
+    border: 1px solid black;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+    .bs-calltoaction > .row{
+        display:table;
+        width: calc(100% + 30px);
+    }
+
+        .bs-calltoaction > .row > [class^="col-"],
+        .bs-calltoaction > .row > [class*=" col-"]{
+            float:none;
+            display:table-cell;
+            vertical-align:middle;
+        }
+
+            .cta-contents{
+                padding-top: 10px;
+                padding-bottom: 10px;
+            }
+
+                .cta-title{
+                    margin: 0 auto 15px;
+                    padding: 0;
+                }
+
+                .cta-desc{
+                    padding: 0;
+                }
+
+                .cta-desc p:last-child{
+                    margin-bottom: 0;
+                }
+
+            .cta-button{
+                padding-top: 10px;
+                padding-bottom: 10px;
+            }
+
+@media (max-width: 991px){
+    .bs-calltoaction > .row{
+        display:block;
+        width: auto;
+    }
+
+        .bs-calltoaction > .row > [class^="col-"],
+        .bs-calltoaction > .row > [class*=" col-"]{
+            float:none;
+            display:block;
+            vertical-align:middle;
+            position: relative;
+        }
+
+        .cta-contents{
+            text-align: center;
+        }
+}
+
+
+
+.bs-calltoaction.bs-calltoaction-default{
+    color: #333;
+    background-color: #fff;
+    border-color: #ccc;
+}
+
+.bs-calltoaction.bs-calltoaction-primary{
+    color: #fff;
+    background-color: #337ab7;
+    border-color: #2e6da4;
+}
+
+.bs-calltoaction.bs-calltoaction-info{
+    color: #fff;
+    background-color: #5bc0de;
+    border-color: #46b8da;
+}
+
+.bs-calltoaction.bs-calltoaction-success{
+    color: #fff;
+    background-color: #5cb85c;
+    border-color: #4cae4c;
+}
+
+.bs-calltoaction.bs-calltoaction-warning{
+    color: #fff;
+    background-color: #f0ad4e;
+    border-color: #eea236;
+}
+
+.bs-calltoaction.bs-calltoaction-danger{
+    color: #fff;
+    background-color: #d9534f;
+    border-color: #d43f3a;
+}
+
+.bs-calltoaction.bs-calltoaction-primary .cta-button .btn,
+.bs-calltoaction.bs-calltoaction-info .cta-button .btn,
+.bs-calltoaction.bs-calltoaction-success .cta-button .btn,
+.bs-calltoaction.bs-calltoaction-warning .cta-button .btn,
+.bs-calltoaction.bs-calltoaction-danger .cta-button .btn{
+    border-color:#fff;
+    background-color: none;
+}
+
+// END PRODUCT INDEX
+
+// BOOTSTAP PRODUCT SHOW
+
+.card .card-image{
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d;
+    -o-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+}
+
+.card .card-image img{
+    -webkit-transition: all 0.4s ease;
+    -moz-transition: all 0.4s ease;
+    -ms-transition: all 0.4s ease;
+    -o-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+}
+
+.card .card-image:hover img{
+    -webkit-transform: scale(1.2) rotate(-7deg);
+    -moz-transform: scale(1.2) rotate(-7deg);
+    -ms-transform: scale(1.2) rotate(-7deg);
+    -o-transform: scale(1.2) rotate(-7deg);
+    transform: scale(1.2) rotate(-7deg);
+}
+
+.card{
+    font-family: 'Roboto', sans-serif;
+    margin-top: 10px;
+    position: relative;
+    -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  -moz-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  box-shadow: 4 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
+
+.card .card-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.card .card-content .card-title, .card-reveal .card-title{
+    font-size: 24px;
+    font-weight: 200;
+}
+
+.card .card-action{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-top: 1px solid rgba(160, 160, 160, 0.2);
+}
+.card .card-action a{
+    font-size: 15px;
+    color: #ffab40;
+    text-transform:uppercase;
+    margin-right: 20px;
+    -webkit-transition: color 0.3s ease;
+    -moz-transition: color 0.3s ease;
+    -o-transition: color 0.3s ease;
+    -ms-transition: color 0.3s ease;
+    transition: color 0.3s ease;
+}
+.card .card-action a:hover{
+    color:#ffd8a6;
+    text-decoration:none;
+}
+
+.card .card-reveal{
+    padding: 20px;
+    position: absolute;
+    background-color: #FFF;
+    width: 100%;
+    overflow-y: auto;
+    /*top: 0;*/
+    left:0;
+    bottom:0;
+    height: 100%;
+    z-index: 1;
+    display: none;
+}
+
+.card .card-reveal p{
+    color: rgba(0, 0, 0, 0.71);
+    margin:20px ;
+}
+
+.btn-custom{
+    background-color: transparent;
+    font-size:18px;
 }

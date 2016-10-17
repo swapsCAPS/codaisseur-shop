@@ -2,9 +2,7 @@
 @import "bootstrap";
 
 @import "categories";
+@import "photos";
 @import "products";
 
-h1, h2, h3, h4 {
-    margin: 0;
-    padding: 0;
-}
+@import "custom";

@@ -1,0 +1,37 @@
+
+<div class="alert">
+  <% if alert %>
+    <div class="container">
+        <div class="panel panel-danger">
+            <div class="panel-heading">
+                <h3 class="text-center">
+                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                    <%= alert %>
+                    <small>
+                        <b></b>
+                    </small>
+                </h3>
+            </div>
+        </div>
+    </div>
+    <% end %>
+</div>
+
+
+<div class="notice">
+  <% if notice %>
+    <div class="container">
+        <div class="panel panel-success">
+            <div class="panel-heading">
+                <h3 class="text-center">
+                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+
+                    <small>
+                        <b><%= notice %></b>
+                    </small>
+                </h3>
+            </div>
+        </div>
+    </div>
+  <% end %>
+</div>

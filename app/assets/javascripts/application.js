@@ -15,3 +15,14 @@
 //= require turbolinks
 //= require_tree .
 //= require bootstrap-sprockets
+
+$(function(){
+
+$(document).on('click', '#show', function(event) {
+        $('.card-reveal').slideToggle('slow');
+    });
+
+$(document).on('click', '.card-reveal .close', function(event) {
+        $('.card-reveal').slideToggle('slow');
+    });
+});

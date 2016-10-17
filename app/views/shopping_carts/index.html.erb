@@ -1,0 +1,24 @@
+<div class="main">
+  <% if @shopping_cart %>
+  <%= form_tag do %>
+    <table style="width:100%">
+      <tr>
+        <th>Name</th>
+        <th>Amount</th>
+        <th>Price</th>
+      </tr>
+    <% @shopping_cart.each do |id, amount| %>
+      <% product = Product.find(id.to_i) %>
+      <tr class=" <%= product.categories[0].name.downcase %>">
+        <td><%= product.name %></td>
+        <td><%= amount %></td>
+        <td><%= product.price%></td>
+      </tr>
+    <% end %>
+    </table>
+    <%= link_to("Empty Cart", shopping_cart_path(0), class: "btn btn-default", method: :delete, data: { confirm: "Are you sure?" }) %>
+    <% end %>
+  <% else %>
+    <h3> No item in the Shopping cart </h3>
+  <% end %>
+</div>

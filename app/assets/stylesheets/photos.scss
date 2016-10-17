@@ -1,0 +1,19 @@
+// Place all the styles related to the Photos controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.photos-container {
+    overflow-x: scroll;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+}
+
+.image {
+    overflow: hidden;
+    margin-right: 24px;
+    width: 300px;
+    object-fit: cover;
+    height: 300px;
+}
+

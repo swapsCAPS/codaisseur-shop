@@ -1,14 +1,47 @@
-<div class="main">
-    <h1><%= @product.name %></h1>
-    <%= image_tag(@product.image, :class => "image") %>
-    <span class="price">Price: € <%= @product.price %></span>
-    <label>Find more in:</label>
-    <ul class="list">
-        <% @product.categories.each do |category| %>
-            <li class="list-item">
-                <%= link_to category.name, category %>
-            </li>
-        <% end %>
+<div class="container">
+    <%= form_tag(!session[:shopping_cart] ? new_shopping_cart_path : edit_shopping_cart_path(@product.id), method: "get") do%>
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="card">
+                <div class="card-image">
+                    <img class="img-responsive" src="<%= @product.photos[0].image %>">
+                    <!-- <h5>Sold by: <%= @seller %></h5> -->
+                </div>
+                <!-- card image -->
 
-    </ul>
+                <div class="card-content">
+                    <span class="card-title"><%= @product.name %></span>
+                    <span><h4>Price: €<%= @product.price %></h4></span>
+                    <button type="button" id="show" class="btn btn-custom pull-right" aria-label="Left Align">
+                        <i class="fa fa-ellipsis-v"></i>
+                    </button>
+                </div>
+                <!-- card content -->
+                <div class="card-action">
+                    <div>
+                      <% @product.categories.each do |category| %>
+                      <%= link_to category.name, category %>
+                      <% end %>
+                    </div>
+                    <%= @can_edit ? link_to("Edit product", edit_product_path, class: "btn btn-default") : "" %>
+                    <%= @can_edit ? link_to("Delete product", product_path( @product ), class: "btn btn-default", method: :delete, data: { confirm: "Are you sure?" }) : "" %>
+                    <div class="add-to-shopping-cart">
+                        <input type="number" value="1" step="1" id="amount" name="amount" min="1">
+                        <%= submit_tag "Add to cart", class: "btn btn-default" %>
+                    </div>
+                </div>
+                <!-- card actions -->
+                <input type="text" hidden="hidden" name="product_id" value="<%= @product.id %>">
+                <div class="card-reveal">
+                    <span class="card-title"><%= @product.name %></span>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                    <p><%= @product.description %></p>
+                </div>
+                <!-- card reveal -->
+            </div>
+        </div>
+        <% end %>
+    </div>
 </div>
