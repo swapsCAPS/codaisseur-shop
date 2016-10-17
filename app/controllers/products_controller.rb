@@ -9,7 +9,7 @@ class ProductsController < ApplicationController
     if params[:search]
       @products = Product.search(params[:search]).order_by_price
     else
-      @products = Product.all
+      @products = Product.all.order_by_price
     end
   end
 
