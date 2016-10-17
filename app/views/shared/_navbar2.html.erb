@@ -80,7 +80,7 @@
                             <span class="caret"></span>
                         </a>
                         <ul class="shopping_cart dropdown-menu" role="menu">
-                            <% if session[:shopping_cart] != {} %>
+                            <% if session[:shopping_cart] != {} && session[:shopping_cart] %>
                               <% session[:shopping_cart].each do |id, amount| %>
                               <% product = Product.find(id.to_i)
                               %>
