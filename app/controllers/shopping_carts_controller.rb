@@ -14,7 +14,15 @@ class ShoppingCartsController < ApplicationController
   end
 
   def edit
-    session[:shopping_cart].merge!({params[:product_id].to_s => params[:amount].to_i}) {|key, v1, v2| v1 + v2}
+    if session[:shopping_cart][params[:product_id].to_s]
+
+      item = session[:shopping_cart]
+      session[:shopping_cart] = item.slice!(params[:product_id].to_s)
+      item[params[:product_id].to_s] = item[params[:product_id].to_s] + params[:amount].to_i
+      session[:shopping_cart].merge!(item)
+    else
+      session[:shopping_cart].merge!({params[:product_id].to_s => params[:amount].to_i})
+    end
     redirect_to shopping_carts_path, notice: "Product successfully added to the Shopping cart"
   end
 
