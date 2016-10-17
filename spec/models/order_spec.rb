@@ -1,5 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe Order, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+  # describe "has methods" do
+    # it "should have a method called get_total" do
+      # expect(Order.respond_to?('get_total')).to be true
+    # end
+  # end
 end
