@@ -67,5 +67,3 @@ product9 = Product.create ( {name: "Photoshop intermediate", price: 1.00, descri
 product10 = Product.create ( {name: "Beginner Illustrator", price: 3.00, description: "lorem ipsum", photos: [photo10], user: seller1, categories: [category1, category2] } )
 product11 = Product.create ( {name: "How to use Sketch", price: 4.00, description: "lorem ipsum", photos: [photo11], user: seller1, categories: [category1, category2, category3] } )
 product12 = Product.create ( {name: "Equesion 2nd Level", price: 9.00, description: "lorem ipsum", photos: [photo12], user: seller1, categories: [category2, category3] } )
-
-
