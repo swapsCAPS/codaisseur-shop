@@ -70,7 +70,7 @@ class ProductsController < ApplicationController
       @product.destroy
       redirect_to products_path, notice: "Teh product is gawn!"
     else
-      redirect_to product_path, notice: "What do you think you are doing?"
+      redirect_to product_path, alert: "What do you think you are doing?"
     end
 
   end
