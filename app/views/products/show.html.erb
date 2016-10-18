@@ -27,7 +27,7 @@
                     <%= @can_edit ? link_to("Delete product", product_path( @product ), class: "btn btn-default", method: :delete, data: { confirm: "Are you sure?" }) : "" %>
                     <div class="add-to-shopping-cart">
                         <input type="number" value="1" step="1" id="amount" name="amount" min="1">
-                        <%= submit_tag "Add to cart", class: "btn btn-default" %>
+                        <%= submit_tag "Add to cart", class: "btn btn-default", id: "add-to-cart" %>
                     </div>
                 </div>
                 <!-- card actions -->

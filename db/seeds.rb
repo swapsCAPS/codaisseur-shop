@@ -1,18 +1,5 @@
 # First remove all existing entries from our database
 Photo.delete_all
-
-Product.all.each do |product|
-  product.categories.each do |category|
-    product.categories.delete(category)
-  end
-end
-
-Category.all.each do |category|
-  category.products.each do |product|
-    category.products.delete(product)
-  end
-end
-
 Product.delete_all
 Category.delete_all
 Profile.delete_all
