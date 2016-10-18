@@ -23,9 +23,9 @@ ActiveRecord::Schema.define(version: 20161013141047) do
 
   create_table "categories_products", id: false, force: :cascade do |t|
     t.integer "product_id"
-    t.integer "categories_id"    # PIM what is this line for?  pls compare with rooms_themes in bnb
+    t.integer "categories_id"
     t.integer "category_id"
-    t.index ["categories_id"], name: "index_categories_products_on_categories_id", using: :btree    # PIM what is this line for?  pls compare with rooms_themes in bnb
+    t.index ["categories_id"], name: "index_categories_products_on_categories_id", using: :btree
     t.index ["category_id"], name: "index_categories_products_on_category_id", using: :btree
     t.index ["product_id"], name: "index_categories_products_on_product_id", using: :btree
   end
@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 20161013141047) do
     t.integer  "user_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.string   "image"                            # PIM what is this line for? pls compare with rooms_themes in bnb
+    t.string   "image"
     t.index ["user_id"], name: "index_products_on_user_id", using: :btree
   end
 
@@ -57,28 +57,6 @@ ActiveRecord::Schema.define(version: 20161013141047) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_profiles_on_user_id", using: :btree
-  end
-
-  create_table "rooms", force: :cascade do |t|
-    t.string   "home_type"
-    t.string   "room_type"
-    t.integer  "accommodate"
-    t.integer  "bedroom_count"
-    t.integer  "bathroom_count"
-    t.string   "listing_name"
-    t.text     "description"
-    t.string   "address"
-    t.boolean  "has_tv"
-    t.boolean  "has_kitchen"
-    t.boolean  "has_airco"
-    t.boolean  "has_heating"
-    t.boolean  "has_internet"
-    t.decimal  "price"
-    t.boolean  "active"
-    t.integer  "user_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
-    t.index ["user_id"], name: "index_rooms_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -100,9 +78,8 @@ ActiveRecord::Schema.define(version: 20161013141047) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
-  add_foreign_key "categories_products", "categories"         # PIM this one is not used in rooms_themes in the bnb project. Why we have it here?
+  add_foreign_key "categories_products", "categories"
   add_foreign_key "photos", "products"
   add_foreign_key "products", "users"
   add_foreign_key "profiles", "users"
-  add_foreign_key "rooms", "users"
 end
