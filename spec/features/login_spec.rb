@@ -11,9 +11,8 @@ describe "signed in" do
 
   it "has email" do
 
-    visit categories_url
-
-    expect(page).to have_content(user.email)
+    render
+    expect(rendered).to have_content(user.email)
 
   end
 end
