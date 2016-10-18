@@ -21,7 +21,6 @@ describe "Navigating" do
       # find_link(class: ['btn', 'btn-default', 'add-to-cart'], :visible => :all).visible?
 
       expect(session[:shopping_cart]).to have_content(product.id)
-
     end
   end
 end
