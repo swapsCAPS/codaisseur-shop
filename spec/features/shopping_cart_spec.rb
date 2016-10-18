@@ -16,11 +16,11 @@ describe "Navigating" do
 
     Capybara.using_session("Bob's session") do
 
-    find_button(class: ['btn', 'btn-default', 'add-to-cart']).click
+      page.find('#add-to-cart').click
 
-    # find_link(class: ['btn', 'btn-default', 'add-to-cart'], :visible => :all).visible?
+      # find_link(class: ['btn', 'btn-default', 'add-to-cart'], :visible => :all).visible?
 
-    expect(session[:shopping_cart]).to have_content(product.id)
+      expect(session[:shopping_cart]).to have_content(product.id)
 
     end
   end
