@@ -1,7 +1,7 @@
 <div class="container">
     <%= form_tag(!session[:shopping_cart] ? new_shopping_cart_path : edit_shopping_cart_path(@product.id), method: "get") do%>
     <div class="row">
-        <div class="col-md-6 col-md-offset-3">
+        <div class="col-md-6 col-md-offset-3 product">
             <div class="card">
                 <div class="card-image">
                     <img class="img-responsive" src="<%= @product.photos[0].image %>">

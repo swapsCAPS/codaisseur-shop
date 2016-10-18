@@ -1,23 +1,31 @@
-<main>
-    <div class="container">
-        <div class="col-sm-12">
-            <h1><%= @category.name %></h1>
-            <% @products.each do |product| %>
-            <div class="bs-calltoaction bs-calltoaction-default <%= @category.name.downcase %>">
-                <div class="row">
-                    <div class="col-md-9 cta-contents">
-                        <h1 class="cta-title"><%= product.name %></h1>
-                        <div class="cta-desc">
-                            <p><%= product.description %></p>
-                            <p><%= number_to_currency(product.price, unit: '€') %></p>
-                        </div>
+<main class="wrapper">
+    <a href="<%= category_path(@category.id) %>" class="divider <%= @category.name.downcase %>">
+        <h1><%= @category.name %></h1>
+    </a>
+    <div class="col-sm-12">
+        <% @products.each do |product| %>
+        <div class="col-lg-3 col-sm-6 products">
+
+            <div class="card hovercard">
+                <img src="<%= product.photos[0].image %>" class="cardheader">
+                <div class="avatar">
+                    <img alt="" src="http://res.cloudinary.com/co/image/upload/v1476797943/facebook-avatar_byjhpd.jpg">
+                </div>
+                <div class="info">
+                    <div class="title">
+                        <a href="<%= product_path(product.id) %>"><%= product.name %></a>
                     </div>
-                    <div class="col-md-3 cta-button">
-                        <a href="<%= product_path(product.id) %>" class="btn btn-lg btn-block btn-default">Learn More</a>
-                    </div>
+                    <div class="desc"><%= product.user.profile ? product.user.profile.full_name : product.user.email %></div>
+                    <div class="desc"><%= number_to_currency(product.price, unit: "€") %></div>
+                </div>
+                <div class="bottom">
+                    <% product.categories.each do |category| %>
+                    <%= link_to "", category, class: "btn btn-default #{category.name.downcase}" %>
+                    <% end %>
                 </div>
             </div>
-            <% end %>
+
         </div>
+        <% end %>
     </div>
 </main>
