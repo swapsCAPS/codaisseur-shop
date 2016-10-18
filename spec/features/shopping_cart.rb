@@ -1,5 +1,4 @@
 require 'rails_helper'
-require 'capybara'
 
 # add product to shopping cart -> shopping-cart-page ->  results
 
@@ -20,11 +19,4 @@ describe "Navigating" do
 
     end
   end
-
-  # it "sets the cookie expiration" do
-  #
-  #   expiring_cookie = stub_cookie_jar['expiring_cookie']
-  #   expiring_cookie[:expires].to_i.should be_within(1).of(1.hour.from_now.to_i)
-  #
-  # end
 end
