@@ -11,7 +11,7 @@
 
                 <div class="card-content">
                     <span class="card-title"><%= @product.name %></span>
-                    <span><h4>Price: €<%= @product.price %></h4></span>
+                    <span><h4>Price: <%= "#{number_to_currency @product.price, unit: '€'}" %></h4></span>
                     <button type="button" id="show" class="btn btn-custom pull-right" aria-label="Left Align">
                         <i class="fa fa-ellipsis-v"></i>
                     </button>
