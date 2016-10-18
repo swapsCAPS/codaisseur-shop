@@ -28,8 +28,12 @@ class ShoppingCartsController < ApplicationController
 
   def destroy
     if session[:shopping_cart]
-      session[:shopping_cart] = {}
-      redirect_to shopping_carts_path
+      if params[:id] && params[:id] != 0
+        session[:shopping_cart].except!(params[:id])
+      else
+        session[:shopping_cart] = {}
+        redirect_to shopping_carts_path
+      end
     end
   end
 end
