@@ -1,9 +1,11 @@
 <div class="panel panel-primary">
   <div class="panel-heading">
-    Your profile
+    <%= @profile.full_name %>
   </div>
 
   <div class="panel-body">
-    <%= render 'form' %>
+    <p><%= @profile.bio %></p>
+    <%= link_to("Your Orders", orders_path) %>
   </div>
+
 </div>
