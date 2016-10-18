@@ -23,16 +23,18 @@ class ShoppingCartsController < ApplicationController
     else
       session[:shopping_cart].merge!({params[:product_id].to_s => params[:amount].to_i})
     end
-    redirect_to shopping_carts_path, notice: "Product successfully added to the Shopping cart"
+    redirect_to shopping_carts_path, notice: "Product successfully added to the shopping cart"
   end
 
   def destroy
     if session[:shopping_cart]
       if params[:id] && params[:id] != 0
         session[:shopping_cart].except!(params[:id])
+        redirect_to shopping_carts_path, notice: "Product successfully removed to the shopping cart"
       else
         session[:shopping_cart] = {}
         redirect_to shopping_carts_path
+        redirect_to shopping_carts_path, notice: "Shopping cart is now empty"
       end
     end
   end
