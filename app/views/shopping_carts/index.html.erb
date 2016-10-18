@@ -12,8 +12,8 @@
       <tr class="<%= product.categories[0].name.downcase %>">
         <td><%= product.name %></td>
         <td><%= amount %></td>
-        <td><%= link_to "-", increment_shopping_carts_url(id) %>    <%= link_to "+", increment_shopping_carts_url(id) %></td>
-        <td><%= "#{number_to_currency product.price, unit: '€'}" %></td>
+        <td><%= link_to "-", decrement_shopping_carts_url(product_id: id) %>    <%= link_to "+", increment_shopping_carts_url(product_id: id) %></td>
+        <td><%= "#{number_to_currency product.price * amount, unit: '€'}" %></td>
       </tr>
     <% end %>
       <tr class="total-price"></tr>

@@ -14,7 +14,7 @@
         <tr class=" <%= li.product.categories[0].name.downcase %>">
           <td><%= li.product.name %></td>
           <td><%= li.amount %></td>
-          <td><%= "#{number_to_currency li.product.price, unit: '€'}" %></td>
+          <td><%= "#{number_to_currency li.product.price * li.amount, unit: '€'}" %></td>
         </tr>
       <% end %>
       </table>

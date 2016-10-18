@@ -1,11 +1,27 @@
 class ShoppingCartsController < ApplicationController
 
-  def increment product_id
-    debugger
+  def increment
+    # Key in the shopping cart hash to increment
+    product_id = params[:product_id]
+    # The current amount
+    cur_amount = session[:shopping_cart][product_id.to_s]
+    # Increment current amount by 1
+    new_amount = cur_amount + 1
+    # Save it back into the shopping_cart
+    session[:shopping_cart][product_id.to_s] = new_amount
+    redirect_to shopping_carts_path
   end
 
-  def decrement product_id
-    debugger
+  def decrement
+    # Key in the shopping cart hash to increment
+    product_id = params[:product_id]
+    # The current amount
+    cur_amount = session[:shopping_cart][product_id.to_s]
+    # Increment current amount by 1
+    new_amount = cur_amount - 1
+    # Save it back into the shopping_cart
+    session[:shopping_cart][product_id.to_s] = new_amount
+    redirect_to shopping_carts_path
   end
 
   def index
@@ -19,10 +35,6 @@ class ShoppingCartsController < ApplicationController
   def new
     session[:shopping_cart] = {params[:product_id].to_s => params[:amount].to_i}
     redirect_to shopping_carts_path, notice: "Product successfully added to the Shopping cart"
-  end
-
-  def show
-    redirect_to shopping_carts_path
   end
 
   def edit
