@@ -10,10 +10,13 @@ buyer1 = User.create( {name: "Giulio", email: "giulio@gmail.com", role: "buyer",
 buyer2 = User.create( {name: "Pim", email: "pim@gmail.com", role: "buyer", password: "abcd1234"} )                  # please let this be pim@gmail.com
 seller1 = User.create( {name: "Robert", email: "robert@gmail.com", role: "seller", password: "abcd1234"} )
 
+#Create profiles
+
+profile1 = Profile.create({first_name:"Robert", last_name:"Hopman", bio:"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", user: seller1})
 # Create some categories
-category1 = Category.create ( {name: "Offline"} )
-category2 = Category.create ( {name: "Online"} )
-category3 = Category.create ( {name: "Books"} )
+category1 = Category.create ( {name: "Beginner"} )
+category2 = Category.create ( {name: "Intermediate"} )
+category3 = Category.create ( {name: "Advanced"} )
 
 # Create some photos
 photo1 = Photo.create(remote_image_url: "https://res-5.cloudinary.com/pvdh/image/upload/v1476440740/images_1_omcysk.jpg")

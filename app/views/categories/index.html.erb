@@ -1,37 +1,50 @@
-<div id="wrap">
-<div class="center-container">
-    <div class="center-row">
-      <div class="container">
-        <ol>
-          <li>You want to get a job</li>
-          <li>You want the best teachers</li>
-          <li>You come to Mentor</li></ol>
-      </div>
+<!-- <div id="wrap">
+    <div class="center-container">
+        <div class="center-row">
+            <div class="container">
+                <ol>
+                    <li>You want to get a job</li>
+                    <li>You want the best teachers</li>
+                    <li>You come to Mentor</li>
+                </ol>
+            </div>
+        </div>
     </div>
-  </div>
-</div>
+</div> -->
 
 <main class="wrapper">
-  <!-- itinerating all the categories -->
-<div class="categories wrapper">
-    <% @categories.each do |category| %>
-    <!-- printing the category name as title  -->
-    <a href="<%= category_path(category.id) %>">
-        <h1><%= category.name %></h1>
-    </a>
-    <div class="category wrapper">
-        <!-- select the products that include the current category -->
-        <% category.products.each do |product| %>
-        <a href="<%= product_path(product.id) %>">
-            <div class="product wrapper <%= category.name.downcase %>">
-                <!-- printing the name of each product -->
-                <h3><%= product.name %></h3>
+    <!-- itinerating all the categories -->
+        <% @categories.each do |category| %>
+        <!-- printing the category name as title  -->
+        <a href="<%= category_path(category.id) %>" class="divider <%= category.name.downcase %>">
+            <h1><%= category.name %></h1>
+        </a>
+        <div class="category wrapper">
+            <!-- select the products that include the current category -->
+            <% category.products.each do |product| %>
+            <div class="col-lg-3 col-sm-6 products">
+
+                <div class="card hovercard">
+                    <img src="<%= product.photos[0].image %>" class="cardheader">
+                    <div class="avatar">
+                        <img alt="" src="http://res.cloudinary.com/co/image/upload/v1476797943/facebook-avatar_byjhpd.jpg">
+                    </div>
+                    <div class="info">
+                        <div class="title">
+                            <a href="<%= product_path(product.id) %>"><%= product.name %></a>
+                        </div>
+                        <div class="desc"><%= product.user.profile ? product.user.profile.full_name : product.user.email %></div>
+                        <div class="desc"><%= number_to_currency(product.price, unit: "€") %></div>
+                    </div>
+                    <div class="bottom">
+                      <% product.categories.each do |category| %>
+                      <%= link_to "", category, class: "btn btn-default #{category.name.downcase}" %>
+                      <% end %>
+                    </div>
+                </div>
 
             </div>
-        </a>
-
+            <% end %>
+        </div>
         <% end %>
-    </div>
-    <% end %>
-</div>
 </main>

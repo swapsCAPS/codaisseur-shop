@@ -12,8 +12,4 @@ class User < ApplicationRecord
     profile.present?
   end
 
-  def full_name
-    profile.full_name
-  end
-
 end
