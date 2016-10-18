@@ -5,7 +5,7 @@
         <div class="bs-calltoaction bs-calltoaction-default <%= order %>">
             <div class="row">
                 <div class="col-md-9 cta-contents">
-                    <h1 class="cta-title"><%= link_to "#{order.order_number}). #{order.payment_method}, € #{order.get_total}", order %></h1>
+                    <h1 class="cta-title"><%= link_to "##{order.order_number} #{order.payment_method}, #{number_to_currency order.get_total, unit: '€'}", order %></h1>
                     <div class="cta-desc">
                     </div>
                 </div>

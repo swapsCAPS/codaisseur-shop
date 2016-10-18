@@ -4,7 +4,7 @@
         <% @line_items.each do |li| %>
             <div class="row">
                 <div class="col-md-9 cta-contents">
-                  <h1 class="cta-title"><%= "#{li.amount} #{li.product.name} #{li.get_total}" %></h1>
+                  <h1 class="cta-title"><%= "#{li.amount} #{li.product.name} #{number_to_currency li.get_total, unit: '€'}" %></h1>
                     <div class="cta-desc">
                     </div>
                 </div>
