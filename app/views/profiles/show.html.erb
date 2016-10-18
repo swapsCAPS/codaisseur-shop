@@ -10,7 +10,7 @@ Licensed under MIT
 			<div class="profile-sidebar">
 				<!-- SIDEBAR USERPIC -->
 				<div class="profile-userpic">
-					<img src="http://keenthemes.com/preview/metronic/theme/assets/admin/pages/media/profile/profile_user.jpg" class="img-responsive" alt="">
+					<img src="http://res.cloudinary.com/co/image/upload/v1476797943/facebook-avatar_byjhpd.jpg" class="img-responsive" alt="">
 				</div>
 				<!-- END SIDEBAR USERPIC -->
 				<!-- SIDEBAR USER TITLE -->
@@ -40,20 +40,20 @@ Licensed under MIT
             <% if current_user.profile == @profile %>
 						<li>
 							<a href="<%= edit_profile_path(current_user.profile) %>">
-							<i class="glyphicon glyphicon-user"></i>
+							<i class="glyphicon glyphicon-edit"></i>
 							Edit Profile </a>
 						</li>
 						<li>
-							<a href="<%= orders_path %>" target="_blank">
-							<i class="glyphicon glyphicon-ok"></i>
+							<a href="<%= orders_path %>">
+							<i class="glyphicon glyphicon-th-list"></i>
 							Your Orders </a>
 						</li>
+            <li>
+              <a href="<%= new_product_path %>">
+              <i class="glyphicon glyphicon-plus"></i>
+              Add product </a>
+            </li>
             <% end %>
-						<li>
-							<a href="#">
-							<i class="glyphicon glyphicon-flag"></i>
-							Help </a>
-						</li>
 					</ul>
 				</div>
 				<!-- END MENU -->
