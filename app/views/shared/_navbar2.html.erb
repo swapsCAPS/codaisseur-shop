@@ -23,16 +23,13 @@
                         Categories
                         <span class="caret"></span>
                     </a>
-                    <ul class="dropdown-menu" role="menu">
+                    <ul class="dropdown-menu" role="menu">  
+                      <% categories = Category.all %>
+                      <% categories.each do |category| %>
                         <li>
-                            <a href="<%= category_path(1) %>">Online</a>
+                            <a href="<%= category_path(category.id) %>"><%= category.name %></a>
                         </li>
-                        <li>
-                            <a href="<%= category_path(2) %>">Offline</a>
-                        </li>
-                        <li>
-                            <a href="<%= category_path(3) %>">Books</a>
-                        </li>
+                      <% end %>
                         <li class="divider"></li>
                         <li>
                             <a href="<%= categories_path %>">All Categories</a>
@@ -51,7 +48,7 @@
             <% else %>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                        <%= current_user.has_profile? ? current_user.full_name : current_user.email  %>
+                        <%= current_user.has_profile? ? current_user.profile.full_name : current_user.email  %>
                         <span class="caret"></span>
                     </a>
 

@@ -1,31 +1,22 @@
 # First remove all existing entries from our database
 Photo.delete_all
-
-Product.all.each do |product|
-  product.categories.each do |category|
-    product.categories.delete(category)
-  end
-end
-
-Category.all.each do |category|
-  category.products.each do |product|
-    category.products.delete(product)
-  end
-end
-
 Product.delete_all
 Category.delete_all
+Profile.delete_all
 User.delete_all
 
 # Create some users
 buyer1 = User.create( {name: "Giulio", email: "giulio@gmail.com", role: "buyer", password: "abcd1234"} )
-buyer2 = User.create( {name: "Pim", email: "pvdh@gmail.com", role: "buyer", password: "abcd1234"} )
+buyer2 = User.create( {name: "Pim", email: "pim@gmail.com", role: "buyer", password: "abcd1234"} )                  # please let this be pim@gmail.com
 seller1 = User.create( {name: "Robert", email: "robert@gmail.com", role: "seller", password: "abcd1234"} )
 
+#Create profiles
+
+profile1 = Profile.create({first_name:"Robert", last_name:"Hopman", bio:"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", user: seller1})
 # Create some categories
-category1 = Category.create ( {name: "Offline"} )
-category2 = Category.create ( {name: "Online"} )
-category3 = Category.create ( {name: "Books"} )
+category1 = Category.create ( {name: "Beginner"} )
+category2 = Category.create ( {name: "Intermediate"} )
+category3 = Category.create ( {name: "Advanced"} )
 
 # Create some photos
 photo1 = Photo.create(remote_image_url: "https://res-5.cloudinary.com/pvdh/image/upload/v1476440740/images_1_omcysk.jpg")
@@ -40,6 +31,9 @@ photo9 = Photo.create(remote_image_url: "https://res-3.cloudinary.com/pvdh/image
 photo10 = Photo.create(remote_image_url: "https://res-2.cloudinary.com/pvdh/image/upload/c_scale,h_350,w_350/v1476440749/crop380w_istock_000002193842xsmall-books_jil6v3.jpg")
 photo11 = Photo.create(remote_image_url: "https://res-1.cloudinary.com/pvdh/image/upload/v1476440741/images_2_mpmrpw.jpg")
 photo12 = Photo.create(remote_image_url: "https://res-4.cloudinary.com/pvdh/image/upload/v1476440740/download_2_qtqoqq.jpg")
+
+#Default profile picture
+profile_photo = Photo.create(remote_image_url: "http://res.cloudinary.com/co/image/upload/v1476797943/facebook-avatar_byjhpd.jpg")
 
 # Create some products
 product1 = Product.create ( {name: "French Lesson", price: 1.00, description: Faker::Hipster.paragraph, photos: [photo1], user: seller1, categories: [category1] } )
