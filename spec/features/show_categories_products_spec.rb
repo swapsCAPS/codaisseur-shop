@@ -11,9 +11,10 @@ describe "Navigating" do
 
   photo1 = Photo.create(image: Faker::Avatar.image("my-own-slug", "50x50"))
 
-  let!(:product) { create :product, name: "Peanut", user: user, categories: [category], photos: [photo1] }
+  let!(:photo) { create :photo }
+  let!(:product) { create :product, name: "Peanut", user: user, categories: [category], photos: [photo] }
 
-  context "from category/index page to category/show to product/show and back to category/show" do
+  context "from category/index page --> category/show --> product/show --> category/show" do
     it "is category/show page " do
 
       visit categories_url
