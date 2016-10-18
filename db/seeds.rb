@@ -15,6 +15,7 @@ end
 
 Product.delete_all
 Category.delete_all
+Profile.delete_all
 User.delete_all
 
 # Create some users
