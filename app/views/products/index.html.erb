@@ -1,6 +1,6 @@
 <div class="container">
     <div class="col-sm-12">
-    <% if @products != [] %>
+        <% if @products != [] %>
         <% @products.each do |product| %>
         <div class="bs-calltoaction bs-calltoaction-default <%= product.categories[0].name.downcase %>">
             <div class="row">
@@ -17,9 +17,11 @@
             </div>
         </div>
         <% end %>
-  <% else %>
+    <% else %>
 
-    <h1> No products match you search </h1>
-  <% end %>
+        <h1>
+            No products match you search
+        </h1>
+        <% end %>
     </div>
 </div>
