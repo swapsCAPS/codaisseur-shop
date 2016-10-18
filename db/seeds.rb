@@ -6,27 +6,19 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+
+
+
 Photo.delete_all
-
-Product.all.each do |product|
-  product.categories.each do |category|
-    product.categories.delete(category)
-  end
-end
-
-Category.all.each do |category|
-  category.products.each do |product|
-    category.products.delete(product)
-  end
-end
 
 Product.delete_all
 Category.delete_all
 User.delete_all
 
 
+
 buyer1 = User.create( {name: "Giulio", email: "giulio@gmail.com", role: "buyer", password: "abcd1234"} )
-buyer2 = User.create( {name: "Pim", email: "pvdh@gmail.com", role: "buyer", password: "abcd1234"} )
+buyer2 = User.create( {name: "Pim", email: "pim@gmail.com", role: "buyer", password: "abcd1234"} )                  # please let this be pim@gmail.com
 seller1 = User.create( {name: "Robert", email: "robert@gmail.com", role: "seller", password: "abcd1234"} )
 
 category1 = Category.create ( {name: "Offline"} )
