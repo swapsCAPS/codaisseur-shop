@@ -16,7 +16,6 @@
           <td><%= li.amount %></td>
           <td><%= "#{number_to_currency li.product.price, unit: '€'}" %></td>
         </tr>
-        <%= f.hidden_field :line_item_ids, :multiple => true, :value => li.id %>
       <% end %>
       </table>
       <div class="actions">

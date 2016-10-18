@@ -8,8 +8,16 @@ Rails.application.routes.draw do
   resources :photos, only: [:destroy]
 
   resources :products
-  resources :shopping_carts, only: [:index, :edit, :new, :destroy]
   resources :orders, only: [:new, :create, :index, :show]
+
+  resources :shopping_carts do
+    collection do
+      get 'increment'
+    end
+    collection do
+      get 'decrement'
+    end
+  end
 
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

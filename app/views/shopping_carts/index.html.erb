@@ -8,18 +8,20 @@
         <th>Price</th>
       </tr>
     <% @shopping_cart.each do |id, amount| %>
-      <% product = Product.find(id.to_i) %>
-      <tr class=" <%= product.categories[0].name.downcase %>">
+      <% product = Product.find(id) %>
+      <tr class="<%= product.categories[0].name.downcase %>">
         <td><%= product.name %></td>
         <td><%= amount %></td>
+        <td><%= link_to "-", increment_shopping_carts_url(id) %>    <%= link_to "+", increment_shopping_carts_url(id) %></td>
         <td><%= "#{number_to_currency product.price, unit: '€'}" %></td>
       </tr>
     <% end %>
+      <tr class="total-price"></tr>
     </table>
-    <%= link_to("Empty Cart", shopping_cart_path(0), class: "btn btn-default", method: :delete, data: { confirm: "Are you sure?" }) %>
+    <%= link_to("Empty Cart", shopping_cart_path(0), class: "btn btn-danger", method: :delete, data: { confirm: "Are you sure?" }) %>
     <%= link_to "Order", new_order_path(@order), class: "btn btn-default" %>
     <% end %>
   <% else %>
-    <h3> No item in the Shopping cart </h3>
+    <h3> No items in the Shopping cart </h3>
   <% end %>
 </div>

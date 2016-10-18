@@ -1,12 +1,16 @@
 class ShoppingCartsController < ApplicationController
 
+  def increment product_id
+    debugger
+  end
+
+  def decrement product_id
+    debugger
+  end
+
   def index
     if session[:shopping_cart]
       @shopping_cart = session[:shopping_cart]
-      @order = current_user.orders.build
-      @shopping_cart.each do |product_id, amount|
-	@order.line_items.build(product_id: product_id, amount: amount)
-      end
     else
       @shopping_cart = {}
     end
@@ -17,9 +21,12 @@ class ShoppingCartsController < ApplicationController
     redirect_to shopping_carts_path, notice: "Product successfully added to the Shopping cart"
   end
 
+  def show
+    redirect_to shopping_carts_path
+  end
+
   def edit
     if session[:shopping_cart][params[:product_id].to_s]
-
       item = session[:shopping_cart]
       session[:shopping_cart] = item.slice!(params[:product_id].to_s)
       item[params[:product_id].to_s] = item[params[:product_id].to_s] + params[:amount].to_i
@@ -32,12 +39,8 @@ class ShoppingCartsController < ApplicationController
 
   def destroy
     if session[:shopping_cart]
-      if params[:id] && params[:id] != 0
-        session[:shopping_cart].except!(params[:id])
-      else
-        session[:shopping_cart] = {}
-        redirect_to shopping_carts_path
-      end
+      session[:shopping_cart] = {}
+      redirect_to shopping_carts_path
     end
   end
 end
