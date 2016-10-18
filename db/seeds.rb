@@ -19,7 +19,7 @@ User.delete_all
 
 # Create some users
 buyer1 = User.create( {name: "Giulio", email: "giulio@gmail.com", role: "buyer", password: "abcd1234"} )
-buyer2 = User.create( {name: "Pim", email: "pvdh@gmail.com", role: "buyer", password: "abcd1234"} )
+buyer2 = User.create( {name: "Pim", email: "pim@gmail.com", role: "buyer", password: "abcd1234"} )                  # please let this be pim@gmail.com
 seller1 = User.create( {name: "Robert", email: "robert@gmail.com", role: "seller", password: "abcd1234"} )
 
 # Create some categories

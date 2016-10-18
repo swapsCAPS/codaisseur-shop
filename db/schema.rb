@@ -23,9 +23,7 @@ ActiveRecord::Schema.define(version: 20161017152231) do
 
   create_table "categories_products", id: false, force: :cascade do |t|
     t.integer "product_id"
-    t.integer "categories_id"
     t.integer "category_id"
-    t.index ["categories_id"], name: "index_categories_products_on_categories_id", using: :btree
     t.index ["category_id"], name: "index_categories_products_on_category_id", using: :btree
     t.index ["product_id"], name: "index_categories_products_on_product_id", using: :btree
   end
@@ -66,7 +64,6 @@ ActiveRecord::Schema.define(version: 20161017152231) do
     t.integer  "user_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.string   "image"
     t.index ["user_id"], name: "index_products_on_user_id", using: :btree
   end
 
@@ -99,7 +96,6 @@ ActiveRecord::Schema.define(version: 20161017152231) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
-  add_foreign_key "categories_products", "categories"
   add_foreign_key "photos", "products"
   add_foreign_key "products", "users"
   add_foreign_key "profiles", "users"
