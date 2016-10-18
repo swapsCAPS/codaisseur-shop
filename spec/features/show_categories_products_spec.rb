@@ -5,14 +5,15 @@ require 'rails_helper'
 describe "Navigating" do
 
   let!(:user) { create :user }
-  let!(:category) { create :category, name: "Nuts" }
+  let!(:category) { create :category, name: "Nuts", products: [] }
 
   # the views needs a photo. Else we get an error
 
-  photo1 = Photo.create(image: Faker::Avatar.image("my-own-slug", "50x50"))
+  # photo1 = Photo.create(image: Faker::Avatar.image("my-own-slug", "50x50"))
 
-  let!(:photo) { create :photo }
-  let!(:product) { create :product, name: "Peanut", user: user, categories: [category], photos: [photo] }
+
+  let!(:product) { create :product, name: "Peanut", user: user, categories: [category] }
+  let!(:photo) { create :photo, product: product }
 
   context "from category/index page --> category/show --> product/show --> category/show" do
     it "is category/show page " do

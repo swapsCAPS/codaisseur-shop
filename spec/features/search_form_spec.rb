@@ -16,7 +16,9 @@ describe "Navigating" do
 
     fill_in("Search", with: "pikachu" )
 
-    page.should have_selector("input[type=submit][value='pikachu']")
+    # page.should have_selector("input[type=submit][value='pikachu']")
+
+    find_link(class: ['some_class', 'some_other_class'], :visible => :all).visible?
 
   end
 
