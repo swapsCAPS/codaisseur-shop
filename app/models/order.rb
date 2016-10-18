@@ -2,8 +2,8 @@ class Order < ApplicationRecord
   belongs_to :user
   has_many :line_items
 
-  validates :user, presence: true
-  validates :payment_method, presence: true
+  # validates :user, presence: true
+  # validates :payment_method, presence: true
 
   PAYMENT_METHODS = ["iDeal", "PayPal", "Credit Card"]
 

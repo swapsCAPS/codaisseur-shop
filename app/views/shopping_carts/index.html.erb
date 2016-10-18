@@ -17,6 +17,7 @@
     <% end %>
     </table>
     <%= link_to("Empty Cart", shopping_cart_path(0), class: "btn btn-default", method: :delete, data: { confirm: "Are you sure?" }) %>
+    <%= link_to "Order", new_order_path(@order), class: "btn btn-default" %>
     <% end %>
   <% else %>
     <h3> No item in the Shopping cart </h3>

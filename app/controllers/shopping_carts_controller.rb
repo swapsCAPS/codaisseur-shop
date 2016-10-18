@@ -3,6 +3,10 @@ class ShoppingCartsController < ApplicationController
   def index
     if session[:shopping_cart]
       @shopping_cart = session[:shopping_cart]
+      @order = current_user.orders.build
+      @shopping_cart.each do |product_id, amount|
+	@order.line_items.build(product_id: product_id, amount: amount)
+      end
     else
       @shopping_cart = {}
     end
