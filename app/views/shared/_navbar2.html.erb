@@ -83,13 +83,12 @@
                         <ul class="shopping_cart dropdown-menu" role="menu">
                             <% if session[:shopping_cart] != {} && session[:shopping_cart] %>
                               <% session[:shopping_cart].each do |id, amount| %>
-                              <% product = Product.find(id.to_i)
-                              %>
+                              <% product = Product.find(id.to_i) %>
                               <li>
-                                  <a href="<%= product_path(product.id) %>"><%= product.name %>: <%=  number_to_currency(product.price, unit: '€') %> </a><%= link_to("x", shopping_cart_path(product.id), class: "btn btn-default", method: :delete, data: { confirm: "Are you sure?" }) %>
+                                  <a href="<%= product_path(product.id) %>"><%= product.name %>: <%=  number_to_currency(product.price * amount.to_i, unit: '€') %> </a><%= link_to("x", shopping_cart_path(product.id), class: "btn btn-default", method: :delete, data: { confirm: "Are you sure?" }) %>
                               </li>
                               <li class="divider"></li>
-                              <% end %>
+                            <% end %>
                               <li> <a><strong>Total Price</strong></a></li>
                             <% else %>
                               <li>
