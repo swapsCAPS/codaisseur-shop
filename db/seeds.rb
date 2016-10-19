@@ -1,13 +1,22 @@
 # First remove all existing entries from our database
 Photo.delete_all
-Product.delete_all
+
+LineItem.delete_all       # this is important!
+Order.delete_all          # this is important!
+
 Category.delete_all
+Product.delete_all
+
 Profile.delete_all
 User.delete_all
 
+# Copied from bnb. Does this work properly?
+ActiveRecord::Base.connection.execute("DELETE  from categories_products")
+
+
 # Create some users
 buyer1 = User.create( {name: "Giulio", email: "giulio@gmail.com", role: "buyer", password: "abcd1234"} )
-buyer2 = User.create( {name: "Pim", email: "pim@gmail.com", role: "buyer", password: "abcd1234"} )                  # please let this be pim@gmail.com
+buyer2 = User.create( {name: "Pim", email: "pim@gmail.com", role: "buyer", password: "abcd1234"} )
 seller1 = User.create( {name: "Robert", email: "robert@gmail.com", role: "seller", password: "abcd1234"} )
 
 #Create profiles

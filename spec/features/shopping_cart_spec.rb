@@ -16,6 +16,7 @@ describe "Navigating" do
 
     Capybara.using_session("Bob's session") do
 
+      # TODO can't find the add to cart button!!!!!!!!!
       page.find('#add-to-cart').click
 
       # find_link(class: ['btn', 'btn-default', 'add-to-cart'], :visible => :all).visible?

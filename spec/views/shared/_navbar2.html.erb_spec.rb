@@ -3,7 +3,7 @@ require 'rails_helper'
 # home -> log-in ->  profile page-> expect to have "profile.name"
 # home -> log-in ->  profile page-> expect to have "email"
 
-describe "signed in" do
+describe "shared/_navbar2.html.erb" do
 
   before { sign_in user }
 
@@ -25,12 +25,12 @@ describe "signed in" do
     it "shows full_name" do
 
       render
-      expect(rendered).to have_content(user.full_name)
+      expect(rendered).to have_content(user.profile.full_name)
     end
   end
 end
 
-describe "signed out" do
+describe "shared/_navbar2.html.erb" do
   it "shows Log In and Sign Up" do
 
     render
