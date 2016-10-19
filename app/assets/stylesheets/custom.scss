@@ -105,6 +105,51 @@ h1, h2, h3, h4 {
     right: -60px;
 }
 
+.shopping-cart-container {
+  display: flex;
+  justify-content: center;
+}
+
+.shopping-cart {
+  width: 500px;
+}
+
+.shopping-cart .line{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 8px;
+}
+
+.shopping-cart .line .name{
+  min-width: 124px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.shopping-cart .line .amount-wrapper {
+  width: 48px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.shopping-cart .line .amount-wrapper .inc-dec {
+  margin-left: 12px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.shopping-cart .line .total {
+  width: 48px;
+  text-align: end;
+}
+
+.shopping-cart .buttons {
+  margin-top: 24px;
+}
+
 
 @media screen and (max-width: 768px) {
     .navbar .navbar-collapse .navbar-right > li:last-child { padding-left: 15px; padding-right: 15px; }

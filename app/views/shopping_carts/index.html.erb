@@ -1,27 +1,35 @@
 <div class="main">
   <% if @shopping_cart %>
-  <%= form_tag do %>
-    <table style="width:100%">
-      <tr>
-        <th>Name</th>
-        <th>Amount</th>
-        <th>Price</th>
-      </tr>
-    <% @shopping_cart.each do |id, amount| %>
-      <% product = Product.find(id) %>
-      <tr class="<%= product.categories[0].name.downcase %>">
-        <td><%= product.name %></td>
-        <td><%= amount %></td>
-        <td><%= link_to "-", decrement_shopping_carts_url(product_id: id) %>    <%= link_to "+", increment_shopping_carts_url(product_id: id) %></td>
-        <td><%= "#{number_to_currency product.price * amount, unit: '€'}" %></td>
-      </tr>
+    <div class="shopping-cart-container">
+      <%= form_tag do %>
+        <div class="shopping-cart">
+          <div class="line">
+            <span class="name">Product</span>
+            <span class="amount">Amount</span>
+            <span class="total">Price</span>
+          </div>
+          <% @shopping_cart.each do |id, amount| %>
+            <% product = Product.find(id) %>
+            <div class="line">
+              <span class="name"><%= product.name %></span>
+              <div class="amount-wrapper">
+                <span class="amount"><%= amount %></span>
+                <div class="inc-dec">
+                  <span><%= link_to "-", decrement_shopping_carts_url(product_id: id) %></span>
+                  <span><%= link_to "+", increment_shopping_carts_url(product_id: id) %></span>
+                </div>
+              </div>
+              <span class="total"><%= "#{number_to_currency product.price * amount, unit: '€'}" %></span>
+            </div>
+          <% end %>
+          <div class="buttons">
+            <%= link_to("Empty Cart", shopping_cart_path(0), class: "btn btn-danger", method: :delete, data: { confirm: "Are you sure?" }) %>
+            <%= link_to "Order", new_order_path(@order), class: "btn btn-default" %>
+          </div>
+        </div>
+      <% end %>
+    <% else %>
+      <h3> No items in the Shopping cart </h3>
     <% end %>
-      <tr class="total-price"></tr>
-    </table>
-    <%= link_to("Empty Cart", shopping_cart_path(0), class: "btn btn-danger", method: :delete, data: { confirm: "Are you sure?" }) %>
-    <%= link_to "Order", new_order_path(@order), class: "btn btn-default" %>
-    <% end %>
-  <% else %>
-    <h3> No items in the Shopping cart </h3>
-  <% end %>
+    </div>
 </div>
