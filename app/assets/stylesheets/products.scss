@@ -66,13 +66,13 @@
 }
 
 .bs-calltoaction.bs-calltoaction-default.beginner, .product.beginner, .beginner{
-  background-color: rgba(245, 243, 83, 0.87);
+  background-color: rgba(83, 245, 245, 0.9);
 }
 .bs-calltoaction.bs-calltoaction-default.intermediate, .product.intermediate, .intermediate{
-  background-color: rgba(241, 184, 57, 0.87);
+  background-color: rgba(23, 84, 240, 0.9);
 }
 .bs-calltoaction.bs-calltoaction-default.advanced, .product.advanced, .advanced{
-  background-color: rgba(255, 31, 31, 0.84);
+  background-color: rgba(3, 34, 167, 0.9);
 }
 
 .bs-calltoaction.bs-calltoaction-default .btn-default{
@@ -303,8 +303,9 @@ a.divider{
   width: 100%;
   text-align: center;
   padding: 20px;
-  margin: 40px auto;
-  color: rgba(46, 46, 46, 1);
+  margin-top: 0;
+  margin-bottom: 40px;
+  color: rgba(64, 62, 62, 0.92);
   transition: 0.1s;
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.50);
 }
@@ -318,15 +319,15 @@ a.divider:hover{
 
 .btn.btn-default.beginner:hover{
   transform: scale(1.2);
-  background-color: rgba(245, 243, 83, 0.50);
+  background-color: rgba(83, 245, 245, 0.5);
 }
 .btn.btn-default.intermediate:hover{
   transform: scale(1.2);
-  background-color: rgba(241, 184, 57, 0.50);
+  background-color: rgba(23, 84, 240, 0.5);
 }
 .btn.btn-default.advanced:hover{
   transform: scale(1.2);
-  background-color: rgba(255, 31, 31, 0.50);
+  background-color: rgba(3, 34, 167, 0.5);
 }
 .products .card {
     padding-top: 20px;

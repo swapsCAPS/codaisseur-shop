@@ -56,6 +56,7 @@ class ShoppingCartsController < ApplicationController
         session[:shopping_cart].except!(params[:id])
         redirect_to shopping_carts_path, notice: "Product successfully removed to the shopping cart"
       else
+        
         session[:shopping_cart] = {}
         redirect_to shopping_carts_path, notice: "Shopping cart is now empty"
       end
