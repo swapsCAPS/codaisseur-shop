@@ -1,5 +1,7 @@
 require 'rails_helper'
 
+# TODO something wrong with either the filename or the describe or whatever. If you run the single blocks of it "" do they will pass! The whole file won't pass
+
 # testing navigation from home (categories#index) -> categories/show -> products/show and back to categories/show
 
 describe "Navigating" do
