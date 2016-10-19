@@ -105,5 +105,4 @@ ActiveRecord::Schema.define(version: 20161018132622) do
   add_foreign_key "products", "users"
   add_foreign_key "profiles", "photos"
   add_foreign_key "profiles", "users"
-
 end
