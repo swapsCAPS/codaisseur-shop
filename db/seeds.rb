@@ -10,7 +10,7 @@ Product.delete_all
 Profile.delete_all
 User.delete_all
 
-# this is important!
+# Copied from bnb. Does this work properly?
 ActiveRecord::Base.connection.execute("DELETE  from categories_products")
 
 
