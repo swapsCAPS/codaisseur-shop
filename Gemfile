@@ -2,6 +2,8 @@
 #
 # ruby '2.3.1'
 
+
+
 # Use rspec
 group :development, :test do
   gem 'rspec-rails', '~> 3.5', '>= 3.5.2'
@@ -72,3 +74,5 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'rails_12factor', group: :production
+
+gem 'faker', '1.6.6' # Added because we think Deis runs in production environment

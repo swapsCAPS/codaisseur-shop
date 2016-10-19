@@ -1,4 +1,7 @@
 # First remove all existing entries from our database
+
+require faker
+
 Photo.delete_all
 
 LineItem.delete_all       # this is important!
@@ -50,7 +53,7 @@ product2 = Product.create ( {name: "Philosophy Lesson", price: 2.00, description
 product3 = Product.create ( {name: "Math lesson", price: 3.00, description: Faker::Hipster.paragraph, photos: [photo3], user: seller1, categories: [category3] } )
 product4 = Product.create ( {name: "Ruby Basic", price: 4.00, description: Faker::Hipster.paragraph, photos: [photo4], user: seller1, categories: [category1, category2, category3] } )
 product5 = Product.create ( {name: "Html Advance", price: 5.00, description: Faker::Hipster.paragraph, photos: [photo5], user: seller1, categories: [category1, category3] } )
-product6 = Product.create ( {name: "How to build a website", price: 6.00, description: Faker::Hipster.paragraph, photos: [photo6], user: seller1, categories: [category1, category2] } )
+product6 = Product.create ( {name: "How to build a website", price: 6.00, description: "Robert is in charged", photos: [photo6], user: seller1, categories: [category1, category2] } )
 product7 = Product.create ( {name: "Learn Intenational Business", price: 7.00, description: Faker::Hipster.paragraph, photos: [photo7], user: seller1, categories: [category1, category2, category3] } )
 product8 = Product.create ( {name: "Photography Basic", price: 17.00, description: Faker::Hipster.paragraph, photos: [photo8], user: seller1, categories: [category2, category3] } )
 product9 = Product.create ( {name: "Photoshop intermediate", price: 1.00, description: Faker::Hipster.paragraph, photos: [photo9], user: seller1, categories: [category1, category2, category3] } )
