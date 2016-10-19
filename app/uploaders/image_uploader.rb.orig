@@ -1,7 +1,0 @@
-class ImageUploader < CarrierWave::Uploader::Base
-  include Cloudinary::CarrierWave
-<<<<<<< HEAD
-end
-=======
-end
->>>>>>> master

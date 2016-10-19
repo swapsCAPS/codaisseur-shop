@@ -41,9 +41,6 @@ photo10 = Photo.create(remote_image_url: "https://res-2.cloudinary.com/pvdh/imag
 photo11 = Photo.create(remote_image_url: "https://res-1.cloudinary.com/pvdh/image/upload/v1476440741/images_2_mpmrpw.jpg")
 photo12 = Photo.create(remote_image_url: "https://res-4.cloudinary.com/pvdh/image/upload/v1476440740/download_2_qtqoqq.jpg")
 
-#Default profile picture
-profile_photo = Photo.create(remote_image_url: "http://res.cloudinary.com/co/image/upload/v1476797943/facebook-avatar_byjhpd.jpg")
-
 # Create some products
 product1 = Product.create ( {name: "French Lesson", price: 1.00, description: Faker::Hipster.paragraph, photos: [photo1], user: seller1, categories: [category1] } )
 product2 = Product.create ( {name: "Philosophy Lesson", price: 2.00, description: Faker::Hipster.paragraph, photos: [photo2], user: seller1, categories: [category2] } )
