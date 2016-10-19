@@ -1,55 +1,145 @@
-html,
-body {
-  height: 100%;
-  /* The html and body elements cannot have any padding or margin. */
+body,
+html {
+    height: 100%;
+    /* The html and body elements cannot have any padding or margin. */
+    font-family: 'Proza Libre', sans-serif;
 }
 
-main{
-  // margin-top: 50px;
-  width: 100%;
-  overflow-y: hidden;
+main {
+    // margin-top: 50px;
+    width: 100%;
+    overflow-y: hidden;
 }
 
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
     margin: 0;
     padding: 0;
 }
-.navbar{
-  width: 100%;
-  top: 0;
-  position: fixed;
-  border: 0;
-  border-radius: 0;
-  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.5);
-  z-index: 1000;
-}
-.dropdown-menu{
-  z-index: 2000;
-  top: 50px;
+
+.navbar {
+    width: 100%;
+    top: 0;
+    position: fixed;
+    border: 0;
+    border-radius: 0;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
 }
 
-.panel{
-  width: 75%;
-  margin: 0 auto;
+.dropdown-menu {
+    z-index: 2000;
+    top: 50px;
 }
-.panel.panel-success .panel-heading{
-  background-color: rgba(167, 227, 152, 0.75);
+
+.panel {
+    width: 75%;
+    margin: 0 auto;
 }
+
+.panel.panel-success .panel-heading {
+    background-color: rgba(167, 227, 152, 0.75);
+}
+
 .text-center {
     text-align: center;
     justify-content: center;
     display: flex;
     align-items: center;
 }
-.text-center b{
-  margin-left: 5px;
+
+.text-center b {
+    margin-left: 5px;
 }
-.alert{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 70px;
-  margin-bottom: 10px;
+
+.alert {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 70px;
+    margin-bottom: 10px;
+}
+
+#particles {
+    width: 100%;
+    height: 100%;
+    margin-top: -100px;
+    overflow: hidden;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: relative;
+    z-index: -2;
+    background-color: rgba(209, 209, 209, 0.99);
+}
+
+.iconmelon,
+.im {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    display: block;
+    fill: #525151;
+}
+
+.iconmelon:after,
+.im:after {
+    content: '';
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#custom-search-input {
+    display: block;
+    width: 50%;
+    margin: 25% 25%;
+    padding: 0;
+    position: absolute;
+    border-top: 50px solid rgba(255, 255, 255, 0.30);
+    border-left: 50px solid rgba(255, 255, 255, 0.30);
+    border-bottom: 50px solid rgba(255, 255, 255, 0.30);
+    border-right: 30px solid rgba(255, 255, 255, 0.30);
+    border-radius: 8px;
+}
+
+#custom-search-input .search-query {
+    padding: 25px;
+    /* IE7-8 doesn't have border-radius, so don't indent the padding */
+    margin-bottom: 0;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    font-size: 18px;
+    background: rgba(255, 255, 255, 0.90);
+    z-index: 0;
+}
+
+#custom-search-input button {
+    border: 0;
+    background: none;
+    /** belows styles are working good */
+    padding: 2px 5px;
+    margin-top: 2px;
+    position: relative;
+    left: -28px;
+    /* IE7-8 doesn't have border-radius, so don't indent the padding */
+    margin-bottom: 0;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    color: rgba(40, 55, 191, 1);
+}
+.input-group-btn{
+  background: rgba(255, 255, 255, 0.30);
+}
+.search-query:focus + button{
+    z-index: 1000;
 }
 // .navbar, .dropdown-menu, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus, .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:hover{
 //   background: rgb(32, 61, 29);
@@ -65,23 +155,69 @@ h1, h2, h3, h4 {
 //   border-top: 1px solid #e5e5e5;
 // }
 
-.navbar-brand { position: relative; z-index: 2; }
+.navbar-brand {
+    position: relative;
+    z-index: 2;
+}
 
-.navbar-nav.navbar-right{margin-right: 15px;}
+.navbar-nav.navbar-right {
+    margin-right: 15px;
+}
 
-.navbar-nav.navbar-right .btn { position: relative; z-index: 2; padding: 4px 20px; margin: 10px auto; transition: transform 0.3s; }
+.navbar-nav.navbar-right .btn {
+    position: relative;
+    z-index: 2;
+    padding: 4px 20px;
+    margin: 10px auto;
+    transition: transform 0.3s;
+}
 
-.navbar .navbar-collapse { position: relative; overflow: visible !important; }
-.navbar .navbar-collapse .navbar-right > li:last-child { padding-left: 22px; }
+.navbar .navbar-collapse {
+    position: relative;
+    overflow: visible !important;
+}
 
-.navbar .nav-collapse { position: absolute; z-index: 1; top: 0; left: 0; right: 0; bottom: 0; margin: 0; padding-right: 120px; padding-left: 80px; width: 100%; }
-.navbar.navbar-default .nav-collapse { background-color: #f8f8f8; }
-.navbar.navbar-inverse .nav-collapse { background-color: #222; }
-.navbar .nav-collapse .navbar-form { border-width: 0; box-shadow: none; }
-.nav-collapse>li { float: right; }
+.navbar .navbar-collapse .navbar-right > li:last-child {
+    padding-left: 22px;
+}
 
-.btn.btn-circle { border-radius: 50px; }
-.btn.btn-outline { background-color: transparent; }
+.navbar .nav-collapse {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0;
+    padding-right: 120px;
+    padding-left: 80px;
+    width: 100%;
+}
+
+.navbar.navbar-default .nav-collapse {
+    background-color: #f8f8f8;
+}
+
+.navbar.navbar-inverse .nav-collapse {
+    background-color: #222;
+}
+
+.navbar .nav-collapse .navbar-form {
+    border-width: 0;
+    box-shadow: none;
+}
+
+.nav-collapse > li {
+    float: right;
+}
+
+.btn.btn-circle {
+    border-radius: 50px;
+}
+
+.btn.btn-outline {
+    background-color: transparent;
+}
 
 .navbar-nav.navbar-right .btn:not(.collapsed) {
     background-color: rgb(111, 84, 153);
@@ -95,28 +231,91 @@ h1, h2, h3, h4 {
     transition: transform 0.3s;
     transform: translate(0px,-50px);
 }
+
 .navbar.navbar-default .nav-collapse.in,
 .navbar.navbar-inverse .nav-collapse.in {
     transform: translate(0px,0px);
 }
 
-.shopping_cart.nav.navbar-nav.navbar-right{
+.shopping_cart.nav.navbar-nav.navbar-right {
     position: absolute;
     right: -60px;
 }
 
+.shopping-cart-container {
+  display: flex;
+  justify-content: center;
+}
+
+.shopping-cart {
+  width: 500px;
+}
+
+.shopping-cart .line{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 8px;
+}
+
+.shopping-cart .line .name{
+  min-width: 124px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.shopping-cart .line .amount-wrapper {
+  width: 48px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.shopping-cart .line .amount-wrapper .inc-dec {
+  margin-left: 12px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.shopping-cart .line .total {
+  width: 48px;
+  text-align: end;
+}
+
+.shopping-cart .buttons {
+  margin-top: 24px;
+}
 
 @media screen and (max-width: 768px) {
-    .navbar .navbar-collapse .navbar-right > li:last-child { padding-left: 15px; padding-right: 15px; }
+    #custom-search-input {
+      width: 95%;
+      margin: 50% 5%;
+    }
 
-    .navbar .nav-collapse { margin: 7.5px auto; padding: 0; }
-    .navbar .nav-collapse .navbar-form { margin: 0; }
-    .nav-collapse>li { float: none; }
+    .navbar .navbar-collapse .navbar-right > li:last-child {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .navbar .nav-collapse {
+        margin: 7.5px auto;
+        padding: 0;
+    }
+
+    .navbar .nav-collapse .navbar-form {
+        margin: 0;
+    }
+
+    .nav-collapse > li {
+        float: none;
+    }
 
     .navbar.navbar-default .nav-collapse,
     .navbar.navbar-inverse .nav-collapse {
         transform: translate(-100%,0px);
     }
+
     .navbar.navbar-default .nav-collapse.in,
     .navbar.navbar-inverse .nav-collapse.in {
         transform: translate(0px,0px);
@@ -126,16 +325,19 @@ h1, h2, h3, h4 {
     .navbar.navbar-inverse .nav-collapse.slide-down {
         transform: translate(0px,-100%);
     }
+
     .navbar.navbar-default .nav-collapse.in.slide-down,
     .navbar.navbar-inverse .nav-collapse.in.slide-down {
         transform: translate(0px,0px);
     }
 
-    .shopping_cart.nav.navbar-nav.navbar-right{
+    .shopping_cart.nav.navbar-nav.navbar-right {
         position: absolute;
         top: -53px;
         right: 50px;
     }
 
-    .navbar-nav.navbar-right{margin-right: 0;}
+    .navbar-nav.navbar-right {
+        margin-right: 0;
+    }
 }
