@@ -259,7 +259,7 @@ h4 {
 }
 
 .shopping-cart .line .name{
-  min-width: 124px;
+  width: 200px;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -280,6 +280,11 @@ h4 {
 
 .shopping-cart .line .total {
   width: 48px;
+  text-align: end;
+}
+
+.shopping-cart .line .delete {
+  width: 24px;
   text-align: end;
 }
 
