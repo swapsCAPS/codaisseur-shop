@@ -1,0 +1,36 @@
+<div class="main">
+  <div class="shopping-cart-container">
+    <% if @shopping_cart %>
+      <%= form_for @order do |f| %>
+        <div class="shopping-cart">
+          <div class="line">
+            <span class="name">Product</span>
+            <div class="amount-wrapper">
+              <span class="amount">Amount</span>
+              <div class="inc-dec">
+              </div>
+            </div>
+            <span class="total">Price</span>
+          </div>
+          <% @order.line_items.each do |li| %>
+            <div class="line">
+              <span class="name"><%= li.product.name %></span>
+              <div class="amount-wrapper">
+                <span class="amount"><%= li.amount %></span>
+                <div class="inc-dec">
+                </div>
+              </div>
+              <span class="total"><%= "#{number_to_currency li.product.price * li.amount, unit: '€'}" %></span>
+            </div>
+          <% end %>
+          <div class="buttons">
+            <%= f.submit "Submit Order", class: "btn btn-primary" %>
+          </div>
+        </div>
+      <% end %>
+    <% else %>
+      <h3>No items in order yet</h3>
+    <% end %>
+  </div>
+</div>
+
