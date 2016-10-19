@@ -7,6 +7,7 @@
             <span class="name">Product</span>
             <span class="amount">Amount</span>
             <span class="total">Price</span>
+            <span class="delete">Remove</span>
           </div>
           <% @shopping_cart.each do |id, amount| %>
             <% product = Product.find(id) %>
@@ -20,8 +21,15 @@
                 </div>
               </div>
               <span class="total"><%= "#{number_to_currency product.price * amount, unit: '€'}" %></span>
+              <%= link_to("X", shopping_cart_path(product.id), class: "delete", method: :delete, data: { confirm: "Are you sure?" }) %>
             </div>
           <% end %>
+          <div class="line">
+            <span class="name">Total:</span>
+            <span class="amount-wrapper"></span>
+            <span class="total"><%= "#{number_to_currency @total_price, unit: '€'}" %></span>
+            <span class="delete"></span>
+          </div>
           <div class="buttons">
             <%= link_to("Empty Cart", shopping_cart_path(0), class: "btn btn-danger", method: :delete, data: { confirm: "Are you sure?" }) %>
             <%= link_to "Order", new_order_path(@order), class: "btn btn-default" %>
