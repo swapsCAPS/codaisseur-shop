@@ -10,13 +10,19 @@ require 'rails_helper'
 
 RSpec.describe Product, type: :model do
 
-  context "product has NO category" do
+  context "product has category" do
     let(:user1) {create :user}
 
-    let(:product1) { create :product, user: user1, categories: [] }      # same remark as below: we need an array
 
-    it "has 1 category" do
-      expect(product1.categories).to eq([])
+    it "has NO category" do
+      product1 = Product.new( user: user1, categories: [] )
+
+      product1.valid?
+      expect(product1.errors).to have_key(:categories)
+
+      product2 = Product.new( user: user1 )
+      product2.valid?
+      expect(product2.errors).to have_key(:categories)
     end
   end
 
@@ -92,12 +98,6 @@ RSpec.describe Product, type: :model do
         expect(product.errors).not_to have_key(:product)          # this is how it's done in codaiseurbnb in rooms_spec.rb:49   BUT WHY?
       end
     end
-
-
-
-
-
-
 
 
   end

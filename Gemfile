@@ -1,8 +1,8 @@
-# source 'https://rubygems.org'
+source 'https://rubygems.org'
 #
-# ruby '2.3.1'
 
-
+#leave this here for deis please
+ruby '2.3.1'
 
 # Use rspec
 group :development, :test do
