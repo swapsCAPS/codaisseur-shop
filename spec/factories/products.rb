@@ -5,15 +5,16 @@ FactoryGirl.define do
 
     description       { Faker::Lorem.sentence(40) }
     #address           { Faker::Address.city }
-
     price             { Faker::Commerce.price }
+    user
 
-    #trait :active do
-    #  active true
-    #end
+    transient do
+      photo_count 1
+    end
 
-    #trait :inactive do
-    #  active false
-    #end
+    after(:build) do |prod, evaluator|
+      prod.photos << build_list(:photo, evaluator.photo_count, product: prod)
+    end
+
   end
 end

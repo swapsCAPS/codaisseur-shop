@@ -39,13 +39,16 @@ class ProductsController < ApplicationController
   end
 
   def create
+
     @product = current_user.products.build(product_params)
 
-	if @product.save
-	  image_params.each do |image|
-		@product.photos.create(image: image)
-	  end
+    image_params.each do |image|
+      @photo = Photo.new(image: image)
+      @product.photos << @photo
+    end
 
+
+	if @product.save
 	  redirect_to product_path(@product), notice: "Product added"
 	else
 	  render :new
