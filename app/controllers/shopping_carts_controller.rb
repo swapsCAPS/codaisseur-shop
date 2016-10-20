@@ -58,7 +58,12 @@ class ShoppingCartsController < ApplicationController
     if session[:shopping_cart]
       if params[:id] && params[:id].to_i != 0
         session[:shopping_cart].except!(params[:id])
-        redirect_to shopping_carts_path, notice: "Product successfully removed to the shopping cart"
+
+        # AJAX
+        respond_to do |format|
+          format.html { redirect_to shopping_carts_path, notice: "Product successfully removed to the shopping cart" }
+          format.json { head :no_content }
+        end
       else
         session[:shopping_cart] = {}
         redirect_to shopping_carts_path, notice: "Shopping cart is now empty"
