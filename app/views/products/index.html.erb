@@ -1,6 +1,6 @@
 <main class="wrapper">
-        <% if @products != [] %>
-        <% @products.each do |product| %>
+    <% if @products != [] %>
+      <% @products.each do |product| %>
         <div class="col-lg-3 col-sm-6 products">
 
             <div class="card hovercard">
@@ -23,11 +23,11 @@
             </div>
 
         </div>
-        <% end %>
+      <% end %>
     <% else %>
 
         <h1>
             No products match you search
         </h1>
-        <% end %>
+    <% end %>
 </div>

@@ -1,39 +1,43 @@
 <ul class="event-list">
     <% @profile.user.orders.each do |order| %>
-    <% order.line_items.each do |line_item| %>
-    <% product = Product.find(line_item.id) %>
-    <li>
-        <time datetime="<%= order.created_at %>" class="<%=product.categories[0].name.downcase %>">
-            <span class="day"><%= order.created_at.day %></span>
-            <span class="month"><%= order.created_at.strftime('%b') %></span>
-            <span class="year">order.created_at.year</span>
-            <span class="time">order.created_at.time</span>
-        </time>
-        <img alt="<%= product.name %>" src="<%= product.photos[0].image %>"/>
-        <div class="info">
-            <h2 class="title"><%= link_to product.name, product_path(product.id) %></h2>
-            <p class="desc"><%= link_to product.user.profile.full_name, profile_path(product.user.profile) %></p>
-        </div>
-        <div class="social">
-            <ul>
-                <li class="facebook" style="width:33%;">
-                    <a href="#facebook">
-                        <span class="fa fa-facebook"></span>
-                    </a>
-                </li>
-                <li class="twitter" style="width:34%;">
-                    <a href="#twitter">
-                        <span class="fa fa-twitter"></span>
-                    </a>
-                </li>
-                <li class="google-plus" style="width:33%;">
-                    <a href="#google-plus">
-                        <span class="fa fa-google-plus"></span>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </li>
+      <% order.line_items.each do |line_item| %>
+        <% product = Product.where(id: line_item.product.id).first %>
+          <% if product %>
+          <li>
+              <time datetime="<%= order.created_at %>" class="<%=product.categories[0].name.downcase %>">
+                  <span class="day"><%= order.created_at.day %></span>
+                  <span class="month"><%= order.created_at.strftime('%b') %></span>
+                  <span class="year">order.created_at.year</span>
+                  <span class="time">order.created_at.time</span>
+              </time>
+              <img alt="<%= product.name %>" src="<%= product.photos[0].image %>"/>
+              <div class="info">
+                  <h2 class="title"><%= link_to product.name, product_path(product.id) %></h2>
+                  <p class="desc"><%= link_to product.user.profile.full_name, profile_path(product.user.profile) %></p>
+              </div>
+              <div class="social">
+                  <ul>
+                      <li class="facebook" style="width:33%;">
+                          <a href="#facebook">
+                              <span class="fa fa-facebook"></span>
+                          </a>
+                      </li>
+                      <li class="twitter" style="width:34%;">
+                          <a href="#twitter">
+                              <span class="fa fa-twitter"></span>
+                          </a>
+                      </li>
+                      <li class="google-plus" style="width:33%;">
+                          <a href="#google-plus">
+                              <span class="fa fa-google-plus"></span>
+                          </a>
+                      </li>
+                  </ul>
+              </div>
+          </li>
+        <% else %>
+          <h1> Product temporarely not available </h1>
+        <% end %>
+      <% end %>
     <% end %>
-  <% end %>
 </ul>

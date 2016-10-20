@@ -65,7 +65,7 @@ Licensed under MIT
         </div>
         <div class="col-md-9">
             <div class="profile-content">
-              <% if @profile.user.orders %>
+              <% if @profile.user.orders && @profile.user.orders != [] %>
                 <%= render 'list_lessons' %>
               <% else %>
                 <h1> You don't have any lesson </h1>
