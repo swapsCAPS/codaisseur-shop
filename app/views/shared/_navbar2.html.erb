@@ -78,20 +78,22 @@
                             <span class="caret"></span>
                         </a>
                         <ul class="shopping_cart dropdown-menu" role="menu">
-                            <% if session[:shopping_cart] != {} && session[:shopping_cart] %>
-                              <% session[:shopping_cart].each do |id, amount| %>
-                              <% product = Product.find(id) %>
-                              <li>
-                                  <a href="<%= product_path(product.id) %>"><%= product.name %>: <%=  number_to_currency(product.price * amount.to_i, unit: '€') %> </a><%= link_to("x", shopping_cart_path(product.id), class: "btn btn-default", method: :delete, data: { confirm: "Are you sure?" }) %>
-                              </li>
-                              <li class="divider"></li>
+                          <% if session[:shopping_cart] != {} && session[:shopping_cart] %>
+                            <% session[:shopping_cart].each do |id, amount| %>
+                              <% product = Product.where(id: id).first %>
+                              <% if product.present? %>
+                                <li>
+                                    <a href="<%= product_path(product.id) %>"><%= product.name %>: <%=  number_to_currency(product.price * amount.to_i, unit: '€') %> </a><%= link_to("x", shopping_cart_path(product.id), class: "btn btn-default", method: :delete, data: { confirm: "Are you sure?" }) %>
+                                </li>
+                                <li class="divider"></li>
+                              <% end %>
                             <% end %>
-                              <li> <a><strong>Total Price</strong></a></li>
-                            <% else %>
-                              <li>
-                                  <a href="#">Empty</a>
-                              </li>
-                            <% end %>
+                            <li> <a><strong>Total Price</strong></a></li>
+                          <% else %>
+                            <li>
+                                <a href="#">Empty</a>
+                            </li>
+                          <% end %>
                         </ul>
                     </li>
                   </ul>
