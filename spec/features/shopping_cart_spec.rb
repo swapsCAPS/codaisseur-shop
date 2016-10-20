@@ -8,7 +8,7 @@ describe "Navigating" do
   let ( :user ) { create :user }
   let ( :category ) { create :category, name: Faker::Pokemon.name, products: [] }
   let ( :product ) { create :product, name: Faker::Pokemon.name , user: user, categories: [category] }
-  let!( :photo ) { create :photo, product: product }
+  let ( :photo ) { create :photo, remote_image_url: "bla", product: product}
 
   it "adds to cart" do
 
