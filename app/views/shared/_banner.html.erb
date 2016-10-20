@@ -554,8 +554,6 @@
 
 
     $(function () {
-        var color1 = rgb("#c11010")
-        var color2 = rgb("#f9e324")
         $('#particles').particleground({
             minSpeedX: 0.2,
             maxSpeedX: 0.2,
@@ -563,13 +561,13 @@
             maxSpeedY: 0.2,
             directionX: 'center', // 'center', 'left' or 'right'. 'center' = dots bounce off edges
             directionY: 'down', // 'center', 'up' or 'down'. 'center' = dots bounce off edges
-            density: 4500, // How many particles will be generated: one particle every n pixels
+            density: 8500, // How many particles will be generated: one particle every n pixels
             dotColor: "rgb(134, 187, 210)",
-            lineColor: "rgb(11, 13, 245)",
+            lineColor: "rgba(216, 233, 254, 0.5)",
             particleRadius: 8, // Dot size
             lineWidth: 1,
             curvedLines: true,
-            proximity: 130, // How close two dots need to be before they join
+            proximity: 90, // How close two dots need to be before they join
             parallax: false
         });
     });
