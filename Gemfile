@@ -7,11 +7,13 @@ ruby '2.3.1'
 # Use rspec
 group :development, :test do
   gem 'rspec-rails', '~> 3.5', '>= 3.5.2'
+  gem 'capybara'
+  gem 'selenium-webdriver'
 end
 
 # Use Capybara
 group :test do
-  gem 'capybara', '~> 2.9', '>= 2.9.1'
+  gem 'database_cleaner'
 end
 
 # Use postgres for our database
