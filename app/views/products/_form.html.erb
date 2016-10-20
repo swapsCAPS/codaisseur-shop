@@ -13,7 +13,7 @@
 
   <div class="form-group">
     <label>Product Category</label>
-    <%= f.collection_select :category_ids, Category.all, :id, :name,{ :prompt => "Pick categories"}, { :multiple => true, :size => 5 } %>
+    <%= f.collection_select :category_ids, Category.all, :id, :name,{ :prompt => "Pick category"}, { :multiple => true, :size => 5 } %>
   </div>
 
   <div class="form-group">
