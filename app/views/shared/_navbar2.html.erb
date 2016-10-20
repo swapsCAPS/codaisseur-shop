@@ -23,7 +23,7 @@
                         Categories
                         <span class="caret"></span>
                     </a>
-                    <ul class="dropdown-menu" role="menu">  
+                    <ul class="dropdown-menu" role="menu">
                       <% categories = Category.all %>
                       <% categories.each do |category| %>
                         <li>
@@ -53,13 +53,13 @@
                     </a>
 
                     <ul class="dropdown-menu">
-                        <% if current_user.has_profile? %>
+                      <% if current_user.has_profile? && !current_user.profile.id.nil? %>
                         <li><%= link_to "Show Profile", current_user.profile %></li>
                         <li role="separator" class="divider"></li>
                         <li><%= link_to "Edit Profile", edit_profile_path(current_user.profile) %></li>
-                    <% else %>
+                      <% else %>
                         <li><%= link_to "Create Profile", new_profile_path %></li>
-                        <% end %>
+                      <% end %>
                         <li><%= link_to "Edit Password", edit_user_registration_path %></li>
 
                         <li role="separator" class="divider"></li>
