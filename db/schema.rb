@@ -72,9 +72,9 @@ ActiveRecord::Schema.define(version: 20161018132622) do
     t.string   "last_name"
     t.text     "bio"
     t.integer  "user_id"
-    t.datetime "created_at",                                                                                                            null: false
-    t.datetime "updated_at",                                                                                                            null: false
-    t.string   "photo",      default: "http://res.cloudinary.com/pvdh/image/upload/v1476892920/Incognito_Search_Large_Logo_rofhta.jpg"
+    t.datetime "created_at",                                                    null: false
+    t.datetime "updated_at",                                                    null: false
+    t.string   "photo",      default: "Incognito_Search_Large_Logo_jirmz3.jpg"
     t.index ["user_id"], name: "index_profiles_on_user_id", using: :btree
   end
 

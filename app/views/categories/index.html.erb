@@ -1,16 +1,3 @@
-<!-- <div id="wrap">
-    <div class="center-container">
-        <div class="center-row">
-            <div class="container">
-                <ol>
-                    <li>You want to get a job</li>
-                    <li>You want the best teachers</li>
-                    <li>You come to Mentor</li>
-                </ol>
-            </div>
-        </div>
-    </div>
-</div> -->
 <%= render 'shared/banner' %>
 <main class="wrapper">
     <!-- itinerating all the categories -->
@@ -27,7 +14,7 @@
                 <div class="card hovercard">
                     <img src="<%= product.photos[0].image %>" class="cardheader">
                     <div class="avatar">
-                        <img alt="" src="http://res.cloudinary.com/co/image/upload/v1476797943/facebook-avatar_byjhpd.jpg">
+                        <img alt="" src="<%= product.user.profile.photo_url %>">
                     </div>
                     <div class="info">
                         <div class="title">

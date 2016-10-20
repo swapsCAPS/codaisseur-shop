@@ -32,7 +32,7 @@ class ProductsController < ApplicationController
   def edit
     # Check if this user owns this product
     if current_user.id == @product.user.id
-	@photos = @product.photos
+	      @photos = @product.photos
     else
       redirect_to root_path, notice: "What do you think you are doing?"
     end
@@ -55,7 +55,8 @@ class ProductsController < ApplicationController
   def update
 	if @product.update(product_params)
 	  image_params.each do |image|
-		@product.photos.create(image: image)
+      debugger
+		  @product.photos.create(image: image)
 	  end
 
 	  redirect_to product_path(@product), notice: "Product added"

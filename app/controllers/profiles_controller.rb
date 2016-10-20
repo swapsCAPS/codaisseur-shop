@@ -12,12 +12,13 @@ class ProfilesController < ApplicationController
   end
 
   def create
+
     @profile = current_user.build_profile(profile_params)
 
     if @profile.save
       redirect_to profile_path(@profile), notice: "Profile successfully created"
     else
-      render :new
+      render :new, alert: "An error occurrs during the creation of your profile"
     end
   end
 
@@ -29,7 +30,7 @@ class ProfilesController < ApplicationController
     if @profile.update(profile_params)
       redirect_to profile_path(@profile), notice: "Profile successfully updated"
     else
-      render :edit
+      render :edit, alert: "An error occurrs during the creation of your profile"
     end
   end
 
@@ -39,6 +40,6 @@ class ProfilesController < ApplicationController
     end
 
     def profile_params
-      params.require(:profile).permit(:first_name, :last_name, :bio)
+      params.require(:profile).permit(:first_name, :last_name, :bio, :photo)
     end
 end
