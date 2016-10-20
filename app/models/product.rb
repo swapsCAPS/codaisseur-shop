@@ -24,4 +24,8 @@ class Product < ApplicationRecord
   def self.search search
     where("name iLIKE ?", "%#{search}%")
   end
+
+  def self.search_cat search
+    where("categories iLIKE ?", "%#{search}%")
+  end
 end

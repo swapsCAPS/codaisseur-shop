@@ -11,23 +11,25 @@ require 'rails_helper'
 RSpec.describe Product, type: :model do
 
   context "product has category" do
-    let(:user1) {create :user}
+
+    let(:user) { create :user }
+    let(:category) { create :category }
 
 
     it "has NO category" do
-      product1 = Product.new( user: user1, categories: [] )
+      product1 = Product.new( user: user, categories: [] )
 
       product1.valid?
       expect(product1.errors).to have_key(:categories)
 
-      product2 = Product.new( user: user1 )
+      product2 = Product.new( user: user )
       product2.valid?
       expect(product2.errors).to have_key(:categories)
     end
   end
 
 
-  describe "association with user" do               # a product needs a user
+  context "association with user" do               # a product needs a user
     let(:user) { create :user }
 
     it "belongs to a user" do
@@ -39,12 +41,12 @@ RSpec.describe Product, type: :model do
 
   context "product has one category" do
 
-    let(:user1) {create :user}
-    let(:category1) { create :category }
-    let(:product1) { create :product, user: user1, categories: [category1] }    # one product has many categories, so we need an array categories: [category1]
+    let(:user) {create :user}
+    let(:category) { create :category }
+    let(:product) { create :product, user: user, categories: [category] }    # one product has many categories, so we need an array categories: [category1]
 
     it "has category" do
-      expect(product1.categories).to eq([category1])
+      expect(product.categories).to eq([category])
     end
   end
 
@@ -53,16 +55,16 @@ RSpec.describe Product, type: :model do
     let(:user1) {create :user}
     let(:category1) { create :category }
     let(:category2) { create :category }
-    let(:product1) { create :product, user: user1, categories: [category1, category2] }
+    let(:product) { create :product, user: user1, categories: [category1, category2] }
 
     it "has category" do
-      expect(product1.categories).to eq([category1, category2])
+      expect(product.categories).to eq([category1, category2])
     end
   end
 
   # here come the validations !!!
 
-  describe "validations" do
+  context "validations" do
     it "is invalid without a name" do
       product = Product.new()      # name: ""
       product.valid?
