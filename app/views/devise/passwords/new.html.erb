@@ -1,17 +1,37 @@
-<div class="row">
-  <div class="col-md-6 col-md-offset-3 text-center">
+<div id="loginbox" class="mainbox col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3">
+    <div class="access panel panel-default">
+        <div class="panel-heading">
+            <div class="panel-title text-center">Forgot your password?</div>
+        </div>
 
-    <h2>Forgot your password?</h2>
+        <div class="panel-body">
 
-    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-      <%= devise_error_messages! %>
+            <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+            <% if devise_error_messages! != "" %>
+            <div class="panel-danger">
+              <div class="panel-heading">
+                  <h3 class="text-center">
+                      <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                      <%= devise_error_messages! %>
+                  </h3>
+              </div>
+            </div>
+            <% end %>
+        <div class="input-group">
+            <span class="input-group-addon">
+                <i class="glyphicon glyphicon-lock"></i>
+            </span>
 
-      <div class="form-group">
-        <%= f.email_field :email, autofocus: true, :class => "form-control", :placeholder => "Email" %>
-      </div>
+            <%= f.email_field :email, autofocus: true, :class => "form-control", :placeholder => "Email" %>
+        </div>
 
-      <%= f.submit "Send me reset password instructions", :class => "btn btn-danger" %>
-    <% end %>
+        <div class="input-group">
+          <%= f.submit "Send me reset password instructions", :class => "btn btn-danger" %>
+        </div>
 
+        <% end %>
+
+    </div>
   </div>
 </div>
+<%= render 'shared/banner' %>
