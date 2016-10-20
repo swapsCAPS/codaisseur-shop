@@ -8,8 +8,6 @@ class Product < ApplicationRecord
   validates :description, presence: true, length: {maximum: 500}
   validates :price, presence: true
   validates :user_id, presence: true
-  validates :photos, presence: true
-  validates :categories, presence: true
 
 
   # copied these methods from codaisseurbnb
