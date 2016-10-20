@@ -1,4 +1,4 @@
-<%= form_for @profile do |f| %>
+<%= form_for @profile, html: { multipart: true } do |f| %>
   <% @profile.errors.full_messages.each do |msg| %>
     <p class="alert alert-danger"><%= msg %></p>
   <% end %>
@@ -16,6 +16,12 @@
   <div class="form-group">
     <label>Bio</label>
     <%= f.text_area :bio, rows: 5, placeholder: "Say something about yourself", class: "form-control" %>
+  </div>
+  <label>Upload Profile Picture</label>
+    <div class="form-group">
+    <span class="btn btn-default">
+      <%= f.file_field :photo, type: :file, multiple: false %>
+    </span>
   </div>
 
   <div class="actions">
