@@ -73,10 +73,30 @@ h4 {
 }
 
 //  END
+// PROFILE EDIT and NEW
+.profile.container{
+  position: absolute;
+  width: 100%;
+  margin-top: 50px;
+}
 
+.profile.container .panel{
+  background-color: rgba(198, 227, 245, 0.5);
+}
+
+.profile.container .panel #profile_photo{
+  max-width: 100px;
+  max-height: 100px;
+}
+.profile.container .panel #avatar{
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
 .panel {
     width: 75%;
     margin: 0 auto;
+    overflow: hidden;
 }
 
 .panel.panel-success .panel-heading {
@@ -113,7 +133,8 @@ h4 {
     right: 0;
     position: relative;
     z-index: -2;
-    background-color: rgba(209, 209, 209, 0.99);
+    background: url("http://dimera.lt/images/naujos_foto/blue_grunge_texture_wallpaper_by_rohynrajesh-d6x0k98.jpg") no-repeat;
+    background-size: cover;
 }
 
 .iconmelon,
@@ -201,7 +222,20 @@ h4 {
 }
 
 .navbar-nav.navbar-right {
-    margin-right: 15px;
+    margin-right: 5px;
+}
+
+.navbar-right.navbar-form .btn{
+  background-color: #1e5083;
+  border-color: rgb(255, 255, 255);
+  color: rgb(255, 255, 255);
+  transition: 0.2s;
+}
+
+.navbar-right.navbar-form .btn:hover{
+  background-color: rgb(255, 255, 255);
+  border-color: #1e5083;
+  color: #1e5083;
 }
 
 .navbar-nav.navbar-right .btn {
@@ -260,8 +294,8 @@ h4 {
 }
 
 .navbar-nav.navbar-right .btn:not(.collapsed) {
-    background-color: rgb(111, 84, 153);
-    border-color: rgb(111, 84, 153);
+    background-color: #1e5083;
+    border-color: rgb(255, 255, 255);
     color: rgb(255, 255, 255);
 }
 
