@@ -9,6 +9,7 @@ class ProfilesController < ApplicationController
   def show
     @user = current_user
     @profile = Profile.find(params[:id])
+
   end
 
   def create
@@ -18,7 +19,7 @@ class ProfilesController < ApplicationController
     if @profile.save
       redirect_to profile_path(@profile), notice: "Profile successfully created"
     else
-      render :new, alert: "An error occurrs during the creation of your profile"
+      redirect_to new_profile_path, alert: "An error occurrs during the creation of your profile"
     end
   end
 

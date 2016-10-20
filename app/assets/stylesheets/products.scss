@@ -66,13 +66,13 @@
 }
 
 .bs-calltoaction.bs-calltoaction-default.beginner, .product.beginner, .beginner{
-  background-color: rgba(83, 245, 245, 0.9);
+  background-color: rgba(83, 245, 245, 0.9) !important;
 }
 .bs-calltoaction.bs-calltoaction-default.intermediate, .product.intermediate, .intermediate{
-  background-color: rgba(23, 84, 240, 0.9);
+  background-color: rgba(23, 84, 240, 0.9)!important;
 }
 .bs-calltoaction.bs-calltoaction-default.advanced, .product.advanced, .advanced{
-  background-color: rgba(3, 34, 167, 0.9);
+  background-color: rgba(3, 34, 167, 0.9) !important;
 }
 
 .bs-calltoaction.bs-calltoaction-default .btn-default{
