@@ -1,12 +1,12 @@
 <main class="wrapper">
-        <% if @products != [] %>
-        <% @products.each do |product| %>
+    <% if @products != [] %>
+      <% @products.each do |product| %>
         <div class="col-lg-3 col-sm-6 products">
 
             <div class="card hovercard">
                 <img src="<%= product.photos[0].image %>" class="cardheader">
                 <div class="avatar">
-                    <img alt="" src="<%= product.user.profile.photo_url %>">
+                    <img alt="" src="<%= product.user.profile.nil?  ? product.user.profile.photo : "http://res.cloudinary.com/dgmqizxd0/image/upload/v1476977556/Incognito_Search_Large_Logo_tz.jpg" %>">
                 </div>
                 <div class="info">
                     <div class="title">
@@ -23,11 +23,11 @@
             </div>
 
         </div>
-        <% end %>
+      <% end %>
     <% else %>
 
         <h1>
             No products match you search
         </h1>
-        <% end %>
+    <% end %>
 </div>

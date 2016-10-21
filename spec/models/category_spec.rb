@@ -28,13 +28,13 @@ RSpec.describe Category, type: :model do
   end
 
   context "category has multiple products" do
-    let(:user1) {create :user}
-    let(:product1) { create :product, user: user1 }
-    let(:product2) { create :product, user: user1 }
-    let(:category1) { create :category, products: [product1, product2] }
+    let(:user) {create :user}
+    let(:product) { create :product, user: user }
+    let(:product2) { create :product, user: user }
+    let(:category) { create :category, products: [product, product2] }
 
     it "has category" do
-      expect(category1.products).to eq([product1, product2])
+      expect(category.products).to eq([product, product2])
     end
   end
 end

@@ -67,14 +67,21 @@ ActiveRecord::Schema.define(version: 20161018132622) do
     t.index ["user_id"], name: "index_products_on_user_id", using: :btree
   end
 
+  create_table "products_categories", id: false, force: :cascade do |t|
+    t.integer "product_id"
+    t.integer "category_id"
+    t.index ["category_id"], name: "index_products_categories_on_category_id", using: :btree
+    t.index ["product_id"], name: "index_products_categories_on_product_id", using: :btree
+  end
+
   create_table "profiles", force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"
     t.text     "bio"
     t.integer  "user_id"
-    t.datetime "created_at",                                                    null: false
-    t.datetime "updated_at",                                                    null: false
-    t.string   "photo",      default: "Incognito_Search_Large_Logo_jirmz3.jpg"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "photo"
     t.index ["user_id"], name: "index_profiles_on_user_id", using: :btree
   end
 

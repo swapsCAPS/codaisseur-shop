@@ -23,7 +23,7 @@
                         Categories
                         <span class="caret"></span>
                     </a>
-                    <ul class="dropdown-menu" role="menu">  
+                    <ul class="dropdown-menu" role="menu">
                       <% categories = Category.all %>
                       <% categories.each do |category| %>
                         <li>
@@ -53,13 +53,13 @@
                     </a>
 
                     <ul class="dropdown-menu">
-                        <% if current_user.has_profile? %>
+                      <% if current_user.has_profile? && !current_user.profile.id.nil? %>
                         <li><%= link_to "Show Profile", current_user.profile %></li>
                         <li role="separator" class="divider"></li>
                         <li><%= link_to "Edit Profile", edit_profile_path(current_user.profile) %></li>
-                    <% else %>
+                      <% else %>
                         <li><%= link_to "Create Profile", new_profile_path %></li>
-                        <% end %>
+                      <% end %>
                         <li><%= link_to "Edit Password", edit_user_registration_path %></li>
 
                         <li role="separator" class="divider"></li>
@@ -78,20 +78,22 @@
                             <span class="caret"></span>
                         </a>
                         <ul class="shopping_cart dropdown-menu" role="menu">
-                            <% if session[:shopping_cart] != {} && session[:shopping_cart] %>
-                              <% session[:shopping_cart].each do |id, amount| %>
-                              <% product = Product.find(id) %>
-                              <li>
-                                  <a href="<%= product_path(product.id) %>"><%= product.name %>: <%=  number_to_currency(product.price * amount.to_i, unit: '€') %> </a><%= link_to("x", shopping_cart_path(product.id), class: "btn btn-default", method: :delete, data: { confirm: "Are you sure?" }) %>
-                              </li>
-                              <li class="divider"></li>
+                          <% if session[:shopping_cart] != {} && session[:shopping_cart] %>
+                            <% session[:shopping_cart].each do |id, amount| %>
+                              <% product = Product.where(id: id).first %>
+                              <% if product.present? %>
+                                <li>
+                                    <a href="<%= product_path(product.id) %>"><%= product.name %>: <%=  number_to_currency(product.price * amount.to_i, unit: '€') %> </a><%= link_to("x", shopping_cart_path(product.id), class: "btn btn-default", method: :delete, data: { confirm: "Are you sure?" }) %>
+                                </li>
+                                <li class="divider"></li>
+                              <% end %>
                             <% end %>
-                              <li> <a><strong>Total Price</strong></a></li>
-                            <% else %>
-                              <li>
-                                  <a href="#">Empty</a>
-                              </li>
-                            <% end %>
+                            <li> <a><strong>Total Price</strong></a></li>
+                          <% else %>
+                            <li>
+                                <a href="#">Empty</a>
+                            </li>
+                          <% end %>
                         </ul>
                     </li>
                   </ul>
