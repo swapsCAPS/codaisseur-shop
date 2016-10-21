@@ -15,7 +15,7 @@ feature 'Add product', js: true do
 
     # fill in the form
     fill_in 'product_name', with: 'Automatic website builder'
-    fill_in 'product_description', with: 'Teh awesome description'
+    fill_in 'product_description', with: 'The awesome description'
     fill_in 'product_price', with: 10
 
     within '#product_category_ids' do
@@ -27,7 +27,7 @@ feature 'Add product', js: true do
     # click save
     click_button('Save')
 
-    sleep(5)
+    sleep(10)
 
     # expect to have a product in the db now
     expect(Product.all.length).to eq(1)
