@@ -33,7 +33,13 @@ h4 {
     z-index: 2000;
     top: 50px;
 }
-
+.notice{
+  position: absolute;
+   margin-top: -50px;
+}
+#container{
+  margin-top: 150px;
+}
 // LOGIN and SIGN UP
 #loginbox {
   position: absolute;
