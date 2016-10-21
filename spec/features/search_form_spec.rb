@@ -1,29 +1,24 @@
 require 'rails_helper'
+require 'capybara'
 
-# shopping-cart-page -> fill in search form faker pokemon -> no results
-# shopping-cart-page -> fill in search form product.name -> yes results
+feature 'Search product', js: true do
 
-# describe "Navigating" do
-#
-#   let ( :user ) { create :user }
-#   let ( :product ) { create :product, user: user }
-#
-#   it "fills in form and has NO results" do
-#
-#     visit shopping_carts_url
-#
-#     click_link "Search"
-#
-#     fill_in("Search", with: "pikachu" )
-#
-#     # page.should have_selector("input[type=submit][value='pikachu']")
-#
-#     # TODO spec cannot find the button
-#     find_link(class: ['some_class', 'some_other_class'], :visible => :all).visible?
-#
-#   end
-#
-#   it "fills in form and has YES results" do
-#
-#   end
-# end
+  let ( :user ) { create :user, email: "some@email.com" }
+  let ( :profile ) { create :profile, user: user }
+  let! ( :product ) { create :product, name: "How to build a website", user: user }
+  let!( :category ) { create :category, name: "A category", products: [product] }
+
+  scenario 'search a product' do
+    visit root_path
+
+    sleep(5)
+
+    click_link("#navbar-collapse-3 > ul > li:nth-child(4) > a")
+    fill_in 'search', with: 'build'
+
+    click_button('#nav-collapse3 > form > button > span')
+
+    sleep(5)
+
+  end
+end
