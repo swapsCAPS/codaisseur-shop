@@ -3,25 +3,27 @@ require 'capybara'
 
 # add product to shopping cart -> shopping-cart-page ->  results
 
-describe "Navigating" do
+feature 'Add product to cart', js: true do
 
-  let ( :user ) { create :user }
-  let ( :category ) { create :category, name: Faker::Pokemon.name, products: [] }
-  let ( :product ) { create :product, name: Faker::Pokemon.name , user: user, categories: [category] }
-  let ( :photo ) { create :photo, remote_image_url: "bla", product: product}
+  before do
+    DatabaseCleaner.clean
+  end
 
-  it "adds to cart" do
+  let ( :user ) { create :user, email: "some@email.com" }
+  let! ( :profile ) { create :profile, user: user }
+  let! ( :product ) { create :product, name: "Some product", user: user, categories: [category] }
+  let ( :category ) {create :category, name: "A category"}
 
-    visit product_path(product)
+  scenario "add to cart" do
 
-    Capybara.using_session("Bob's session") do
+    visit product_path(product.id)
+    sleep(2)
+    click_on("add-to-cart")
+    sleep(2)
 
-      # TODO can't find the add to cart button!!!!!!!!!
-      page.find('#add-to-cart').click
+    expect(page).to have_content('Some product')
+    expect(page).to have_content('Empty Cart')
+    expect(page).to have_content('Order')
 
-      # find_link(class: ['btn', 'btn-default', 'add-to-cart'], :visible => :all).visible?
-
-      expect(session[:shopping_cart]).to have_content(product.id)
-    end
   end
 end
