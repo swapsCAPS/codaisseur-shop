@@ -41,9 +41,7 @@ function reallyAddToCart(id, amount) {
         }),
         contentType: "application/json",
         dataType: "json"
-    })
-
-        .done(function(data) {
+    }).done(function(data) {
             console.log(data);
 
             // Here we make the shopping_cart css change when something is added
