@@ -15,32 +15,32 @@ $(document).ready(function() {
 
     // updateCounters();
 });
-
-function addToCart(id, amount) {
-    var newProduct = { id: amount };
-
-    // THE REQUEST
-    $.ajax({
-        type: "POST",
-        url: "/shopping_carts.json",
-        data: JSON.stringify({
-            product: newProduct
-        }),
-        contentType: "application/json",
-        dataType: "json"
-    }).done(function(data) {
-            console.log(data);
-
-            // Here we make the shopping_cart css change when something is added
-            $("#shopping-cart-glyphicon").css('color', 'green');
-        })
-
-        .fail(function(error) {
-            console.log(error);
-            error_message = error.responseJSON.title[0];
-            showError(error_message);
-        });
-}
+//
+// function addToCart(id, amount) {
+//     var newProduct = { id: amount };
+//
+//     // THE REQUEST
+//     $.ajax({
+//         type: "POST",
+//         url: "/shopping_carts.json",
+//         data: JSON.stringify({
+//             product: newProduct
+//         }),
+//         contentType: "application/json",
+//         dataType: "json"
+//     }).done(function(data) {
+//             console.log(data);
+//
+//             // Here we make the shopping_cart css change when something is added
+//             $("#shopping-cart-glyphicon").css('color', 'green');
+//         })
+//
+//         .fail(function(error) {
+//             console.log(error);
+//             error_message = error.responseJSON.title[0];
+//             showError(error_message);
+//         });
+// }
 
 
 // We can empty the whole cart
@@ -58,41 +58,26 @@ function removeItem(event) {
 
 // When emptied this method is called
 function deleteCart(itemId) {
-  console.log("here");
     $.ajax({
       type: "DELETE",
-      url: "/shopping_carts/"+itemId+".json",
+      url: "/shopping_carts/" + itemId + ".json",
       contentType: "application/json",
-      dataType: "json"})
-      .success(function(data) {          // what is data????
+      dataType: "json"
+    }).done(function(data) {
         console.log("done");
         // either we use this and it deletes all
         if(itemId === 0){
           $('div[id*="line-"]').remove();
         }else{
           // or we use an each that looks something like this:
-          $('#line-'+itemId).remove();
+          $.each($('#line-'+itemId), function(index, listItem) {
+             $listItem = $(listItem);
+             $listItem.remove();
+           });
         }
       });
 }
-
-// function deleteItem(itemId) {
-//
-//     $.ajax({
-//         type: "DELETE",
-//         url: "/shopping_cart/" + itemId + ".json",
-//         contentType: "application/json",
-//         dataType: "json"})
-//
-//         .done(function(data) {
-//
-//             // we should now which item we are deleting
-//             $(".cart_item").remove();
-//
-//         });
-// }
-
 // reseting the error messages
-function resetErrors() {
-    $("#error_message").remove();
-}
+// function resetErrors() {
+//     $("#error_message").remove();
+// }
