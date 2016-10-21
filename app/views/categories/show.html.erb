@@ -9,7 +9,7 @@
             <div class="card hovercard">
                 <img src="<%= product.photos[0].image %>" class="cardheader">
                 <div class="avatar">
-                    <img alt="" src="<%= product.user.profile.nil?  ? product.user.profile.photo : "http://res.cloudinary.com/dgmqizxd0/image/upload/v1476977556/Incognito_Search_Large_Logo_tz.jpg" %>">
+                    <%= profile_photo(product.user.profile) %>
                 </div>
                 <div class="info">
                     <div class="title">
