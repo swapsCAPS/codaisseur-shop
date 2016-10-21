@@ -528,6 +528,10 @@ a.divider:hover{
     position: relative;
     padding-top: 0;
     overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
     text-align: center;
     background-color: rgba(214, 224, 226, 0.2);
 }
