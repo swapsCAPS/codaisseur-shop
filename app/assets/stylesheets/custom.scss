@@ -366,6 +366,14 @@ h4 {
   margin-top: 24px;
 }
 
+.mentor-title {
+  position: absolute;
+  margin-top: -280px;
+  font-size: 40px;
+  color: white;
+  text-align: center;
+}
+
 @media screen and (max-width: 768px) {
     #custom-search-input {
       display: none;
