@@ -55,6 +55,7 @@ class ProductsController < ApplicationController
 	end
   end
 
+
   def update
 	if @product.update(product_params)
 	  image_params.each do |image|
