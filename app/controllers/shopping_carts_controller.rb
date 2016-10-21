@@ -61,12 +61,16 @@ class ShoppingCartsController < ApplicationController
 
         # AJAX
         respond_to do |format|
-          format.html { redirect_to shopping_carts_path, notice: "Product successfully removed to the shopping cart" }
-          format.json { head :no_content }
+          format.html {redirect_to shopping_carts_path, notice: "Shopping cart is now empty"}
+          format.json  { head session[:shopping_cart] }
         end
       else
         session[:shopping_cart] = {}
-        redirect_to shopping_carts_path, notice: "Shopping cart is now empty"
+        # AJAX
+        respond_to do |format|
+          format.html {redirect_to shopping_carts_path, notice: "Shopping cart is now empty"}
+          format.json  { head :no_content }
+        end
       end
     end
   end
