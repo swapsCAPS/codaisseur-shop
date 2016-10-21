@@ -46,7 +46,8 @@ RSpec.describe Product, type: :model do
     let(:product) { create :product, user: user, categories: [category] }    # one product has many categories, so we need an array categories: [category1]
 
     it "has category" do
-      expect(product.categories).to eq([category])
+
+      expect(product.categories).to include(category)
     end
   end
 
@@ -58,7 +59,8 @@ RSpec.describe Product, type: :model do
     let(:product) { create :product, user: user1, categories: [category1, category2] }
 
     it "has category" do
-      expect(product.categories).to eq([category1, category2])
+      expect(product.categories).to include(category1,
+                                            category2)
     end
   end
 

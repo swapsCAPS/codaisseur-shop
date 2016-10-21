@@ -1,1 +1,5 @@
-# json.array! @shopping_cart, partial: 'shopping_carts/shopping_cart', as: :shopping_cart
+
+@shopping_cart.each do |id, amount|
+  json.extract! @shopping_cart, id
+  json.url shopping_cart_url(@shopping_cart, format: :json)
+end

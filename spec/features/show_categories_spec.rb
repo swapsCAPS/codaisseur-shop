@@ -4,25 +4,19 @@ require 'rails_helper'
 
 # testing navigation from home (categories#index) -> categories/show -> products/show and back to categories/show
 
-describe "Navigating" do
+describe "Navigating categories" do
 
   let!(:user) { create :user }
   let!(:category) { create :category, name: "Nuts", products: [] }
 
-  # the views needs a photo. Else we get an error
-
-  # photo1 = Photo.create(image: Faker::Avatar.image("my-own-slug", "50x50"))
-
-
   let!(:product) { create :product, name: "Peanut", user: user, categories: [category] }
-  let!(:photo) { create :photo, product: product }
 
   context "from category/index page --> category/show --> product/show --> category/show" do
     it "is category/show page " do
 
       visit categories_url
 
-      click_link "Nuts"
+      click_link "Peanut"
 
       expect(page).to have_current_path(category_path(category))
 
