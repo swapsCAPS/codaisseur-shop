@@ -22,7 +22,7 @@
                   </div>
                 </div>
                 <span class="total"><%= "#{number_to_currency product.price * amount, unit: '€'}" %></span>
-                <%= link_to("X", shopping_cart_path(product.id), class: "delete", id: "delete-item", method: :delete, data: { confirm: "Are you sure?" }) %>
+                <%= link_to("X", '#', class: "delete", id: "delete-item", data: { confirm: "Are you sure?" }) %>
               </div>
             <% end %>
             <div class="line">
@@ -32,7 +32,7 @@
               <span class="delete"></span>
             </div>
             <div class="buttons">
-              <%= link_to("Empty Cart", shopping_cart_path(0), class: "btn btn-danger", id: "empty-cart", method: :delete, data: { confirm: "Are you sure?" }) %>
+              <%= link_to("Empty Cart", '#', class: "btn btn-danger", id: "empty-cart", data: { confirm: "Are you sure?" }) %>
               <%= link_to "Order", new_order_path(@order), class: "btn btn-default" %>
             </div>
           </div>

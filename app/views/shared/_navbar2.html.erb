@@ -82,8 +82,8 @@
                             <% session[:shopping_cart].each do |id, amount| %>
                               <% product = Product.where(id: id).first %>
                               <% if product.present? %>
-                                <li>
-                                    <a href="<%= product_path(product.id) %>"><%= product.name %>: <%=  number_to_currency(product.price * amount.to_i, unit: '€') %> </a><%= link_to("x", shopping_cart_path(product.id), class: "btn btn-default", method: :delete, data: { confirm: "Are you sure?" }) %>
+                                <li id="line-<%= id %>">
+                                    <a href="<%= product_path(product.id) %>"><%= product.name %>: <%=  number_to_currency(product.price * amount.to_i, unit: '€') %> </a><%= link_to("x", '#', class: "btn btn-default", id: "delete-item", data: { confirm: "Are you sure?" }) %>
                                 </li>
                                 <li class="divider"></li>
                               <% end %>
