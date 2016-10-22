@@ -37,21 +37,40 @@ class ShoppingCartsController < ApplicationController
   end
 
   def new
-    session[:shopping_cart] = {params[:product_id].to_s => params[:amount].to_i}
+    session[:shopping_cart] = {params[:id] => params[:amount].to_i}
+    debugger
     redirect_to shopping_carts_path, notice: "Product successfully added to the Shopping cart"
   end
 
-  def edit
-    if session[:shopping_cart][params[:product_id].to_s]
+  def update
+    product_id = params[:id] # getting id of the product
+    amount = params[:amount].to_i #getting amount of the product
+    # checking if the shopping_cart has been already initialized
+    if session[:shopping_cart].nil?
+       session[:shopping_cart] = {} # if not setting it's value as an empty hash
+    end
+    if session[:shopping_cart][product_id] # if the product already exit in the shopping cart
 
       item = session[:shopping_cart]
-      session[:shopping_cart] = item.slice!(params[:product_id].to_s)
-      item[params[:product_id].to_s] = item[params[:product_id].to_s] + params[:amount].to_i
-      session[:shopping_cart].merge!(item)
+      session[:shopping_cart] = item.slice!(product_id) # extraxt that product into item and putting the rest into the session
+      item[product_id] = item[product_id] + amount #increasing the amount of that product
+      session[:shopping_cart].merge!(item) #inserting the product as last one to be hilighted
+
+      # respond to the ajax call
+      respond_to do |format|
+        format.html {redirect_to product_id, notice: "Product added to the shopping cart"}
+        format.json  { head :no_content}
+      end
     else
-      session[:shopping_cart].merge!({params[:product_id].to_s => params[:amount].to_i})
+      session[:shopping_cart].merge!({product_id => amount}) # if the product is not already in the shopping cart add it
+      @new_product = Product.find(product_id)
+      respond_to do |format|
+        format.html {redirect_to product_id, notice: "Product added to the shopping cart"}
+        format.json  { render json: @new_product, status: :ok, location: @new_product }
+      end
     end
-    redirect_to shopping_carts_path, notice: "Product successfully added to the shopping cart"
+
+
   end
 
   def destroy
