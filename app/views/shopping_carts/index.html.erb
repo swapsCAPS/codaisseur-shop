@@ -25,7 +25,7 @@
                 <%= link_to("X", '#', class: "delete delete-item", data: { confirm: "Are you sure?" }) %>
               </div>
             <% end %>
-            <div class="line" id="line-total">
+            <div class="line" id="total-price">
               <span class="name">Total:</span>
               <span class="amount-wrapper"></span>
               <span class="total"><%= "#{number_to_currency @total_price, unit: '€'}" %></span>

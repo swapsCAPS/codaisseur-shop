@@ -43,7 +43,7 @@ function updateTotalPrice(itemId){
     $('div[id="line-total"]').children('.total').text("€"+total_price);
     $('li[id="line-total"]').children('.total').text("€"+total_price);
   }else{
-    $('div[id="line-total').children('.total').text("€0.00");
+    $('div[id="total-price').children('.total').text("€0.00");
   }
 }
 
@@ -100,7 +100,6 @@ function addToCart(itemId, amount) {
             // Here we make the shopping_cart css change when something is added
             $("#shopping-cart-glyphicon").css('color', 'green');
         })
-
         .fail(function(error) {
             console.log(error);
             error_message = error.responseJSON.title[0];
