@@ -77,22 +77,24 @@
                             <span class="glyphicon glyphicon-shopping-cart" id="shopping-cart-glyphicon"></span>
                             <span class="caret"></span>
                         </a>
-                        <ul class="shopping_cart dropdown-menu" role="menu">
+                        <ul class="shopping_cart dropdown-menu" id="shopping_cart" role="menu">
                           <% if session[:shopping_cart] != {} && session[:shopping_cart] %>
                             <% session[:shopping_cart].each do |id, amount| %>
                               <% product = Product.where(id: id).first %>
                               <% if product.present? %>
                                 <li id="line-<%= id %>">
-                                    <a href="<%= product_path(product.id) %>"><%= product.name %>: <%=  number_to_currency(product.price * amount.to_i, unit: '€') %> </a><%= link_to("x", '#', class: "btn btn-default delete-item", data: { confirm: "Are you sure?" }) %>
+                                    <a href="<%= product_path(product.id) %>"><%= product.name %>: <%=  number_to_currency(product.price * amount.to_i, unit: '€') %> <%= link_to("x", '#', class: "btn btn-default delete-item", data: { confirm: "Are you sure?" }) %> </a>
                                 </li>
                                 <li class="divider"></li>
                               <% end %>
                             <% end %>
                             <li id="line-total"> <a><strong>Total Price</strong> <strong class="total">€</strong></a> </li>
                           <% else %>
-                            <li>
+                            <li id="line-empty">
                                 <a href="#">Empty</a>
                             </li>
+                            <li class="divider"></li>
+                            <li id="line-total"> <a><strong>Total Price</strong> <strong class="total">€ 0</strong></a> </li>
                           <% end %>
                         </ul>
                     </li>

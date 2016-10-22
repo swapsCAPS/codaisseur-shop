@@ -1,8 +1,8 @@
 <div class="container">
-    <%= form_tag(!session[:shopping_cart] ? new_shopping_cart_path : edit_shopping_cart_path(@product.id), method: "get") do%>
+    <%= form_tag("#") do%>
     <div class="row">
         <div class="col-md-6 col-md-offset-3 product">
-            <div class="card">
+            <div class="card" id="<%= @product.id %>">
                 <div class="card-image">
                     <img class="img-responsive" src="<%= @product.photos[0].image %>">
                     <!-- <h5>Sold by: <%= @seller %></h5> -->
@@ -23,17 +23,18 @@
                       <%= link_to category.name, category %>
                       <% end %>
                     </div>
-                    <div>
-                      <%= @can_edit ? link_to(raw('<span class="glyphicon glyphicon-edit"> </span>'), edit_product_path, class: "btn btn-default") : "" %>
-                      <%= @can_edit ? link_to(raw('<span class="glyphicon glyphicon-trash"> </span>'), product_path( @product ), class: "btn btn-default", method: :delete, data: { confirm: "Are you sure?" }) : "" %>
-                    </div>
+                    <% if @can_edit %>
+                      <div>
+                        <%= link_to(raw('<span class="glyphicon glyphicon-edit"> </span>'), edit_product_path, class: "btn btn-default") %>
+                        <%= link_to(raw('<span class="glyphicon glyphicon-trash"> </span>'), product_path( @product ), class: "btn btn-default", method: :delete, data: { confirm: "Are you sure?" }) %>
+                      </div>
+                    <% end %>
                     <div class="add-to-shopping-cart">
                         <input type="number" value="1" step="1" id="amount" name="amount" min="1">
                         <%= submit_tag "Add to cart", class: "btn btn-default", id: "add-to-cart" %>
                     </div>
                 </div>
                 <!-- card actions -->
-                <input type="text" hidden="hidden" name="product_id" value="<%= @product.id %>">
                 <div class="card-reveal">
                     <span class="card-title"><%= @product.name %></span>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
