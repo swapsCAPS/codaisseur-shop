@@ -83,12 +83,12 @@
                               <% product = Product.where(id: id).first %>
                               <% if product.present? %>
                                 <li id="line-<%= id %>">
-                                    <a href="<%= product_path(product.id) %>"><%= product.name %>: <%=  number_to_currency(product.price * amount.to_i, unit: '€') %> </a><%= link_to("x", '#', class: "btn btn-default", id: "delete-item", data: { confirm: "Are you sure?" }) %>
+                                    <a href="<%= product_path(product.id) %>"><%= product.name %>: <%=  number_to_currency(product.price * amount.to_i, unit: '€') %> </a><%= link_to("x", '#', class: "btn btn-default delete-item", data: { confirm: "Are you sure?" }) %>
                                 </li>
                                 <li class="divider"></li>
                               <% end %>
                             <% end %>
-                            <li> <a><strong>Total Price</strong></a></li>
+                            <li id="line-total"> <a><strong>Total Price</strong> <strong class="total">€</strong></a> </li>
                           <% else %>
                             <li>
                                 <a href="#">Empty</a>

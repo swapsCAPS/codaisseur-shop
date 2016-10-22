@@ -57,12 +57,13 @@ class ShoppingCartsController < ApplicationController
   def destroy
     if session[:shopping_cart]
       if params[:id] && params[:id].to_i != 0
-        session[:shopping_cart].except!(params[:id])
+        product_id = params[:id]
+        session[:shopping_cart].except!(product_id)
 
         # AJAX
         respond_to do |format|
           format.html {redirect_to shopping_carts_url, notice: "Shopping cart is now empty"}
-          format.json  { head session[:shopping_cart] }
+          format.json  { render json: product_id, status: :ok, location: shopping_carts_url }
         end
       else
         session[:shopping_cart] = {}

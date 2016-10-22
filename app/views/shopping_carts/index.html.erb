@@ -22,10 +22,10 @@
                   </div>
                 </div>
                 <span class="total"><%= "#{number_to_currency product.price * amount, unit: '€'}" %></span>
-                <%= link_to("X", '#', class: "delete", id: "delete-item", data: { confirm: "Are you sure?" }) %>
+                <%= link_to("X", '#', class: "delete delete-item", data: { confirm: "Are you sure?" }) %>
               </div>
             <% end %>
-            <div class="line">
+            <div class="line" id="line-total">
               <span class="name">Total:</span>
               <span class="amount-wrapper"></span>
               <span class="total"><%= "#{number_to_currency @total_price, unit: '€'}" %></span>
