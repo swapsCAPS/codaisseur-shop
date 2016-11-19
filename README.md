@@ -1,5 +1,7 @@
 # Team DRYKIS Presents the week project
-#### Mentor (1:1 support from your favourite mentors)
+
+<img src="https://github.com/stofstik/codaisseur-shop/blob/master/7ffe8f9b-1dca-4570-a103-20605f949029-large.png" />
+
 ###### URL: [mentor.codaisseur.cloud](http://mentor.codaisseur.cloud)
 
 AUTHORS:
