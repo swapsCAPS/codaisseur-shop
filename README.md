@@ -16,3 +16,11 @@ AUTHORS:
 
 [Here’s the cheatsheet we used for this](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
 
+```bash
+git clone git@github.com:stofstik/codaisseur-shop.git
+cd codaisseur-shop
+bundle install
+rake db:create db:migrate db:seed
+rails server
+```
+
