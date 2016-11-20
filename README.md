@@ -4,6 +4,13 @@
 
 ###### URL: [mentor.codaisseur.cloud](http://mentor.codaisseur.cloud)
 
+### CONTENT:
+#### Brief description
+#### Main challenges
+#### Getting started
+#### Database Structure
+#### Steps followed when working on this app
+
 AUTHORS:
 * Daan
 * Giulio
