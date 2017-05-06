@@ -53,7 +53,7 @@
                     </a>
 
                     <ul class="dropdown-menu">
-                      <% if current_user.has_profile? && !current_user.profile.id.nil? %>
+                      <% if current_user.has_profile? %>
                         <li><%= link_to "Show Profile", current_user.profile %></li>
                         <li role="separator" class="divider"></li>
                         <li><%= link_to "Edit Profile", edit_profile_path(current_user.profile) %></li>

@@ -1,6 +1,6 @@
 # Team DRYKIS Presents the week project
 #### Mentor (1:1 support from your favourite mentors)
-###### URL: [mentor.codaisseur.cloud](http://mentor.codaisseur.cloud)
+###### URL: [findmentor.herokuapp.com](http://findmentor.herokuapp.com)
 
 AUTHORS:
 * Daan
@@ -13,4 +13,3 @@ AUTHORS:
 | ------------- |:-------------:| -----:|
 
 [Here’s the cheatsheet we used for this](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
-

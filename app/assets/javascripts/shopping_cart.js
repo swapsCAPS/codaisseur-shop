@@ -22,14 +22,14 @@ function removeItem(event) {
 }
 
 function get_total(price){
-  total_price = parseInt($('div[id="line-total').children('.total').text().slice(1));
+  total_price = parseInt($('div[id="line-total"]').children('.total').text().slice(1));
   return total_price - price;
 }
 
 function cleanView(itemId){
-  $('div[id="line-'+itemId+'"').remove();
-  $('li[id="line-'+itemId+'"').next().remove();
-  $('li[id="line-'+itemId+'"').remove();
+  $('div[id="line-'+itemId+'"]').remove();
+  $('li[id="line-'+itemId+'"]').next().remove();
+  $('li[id="line-'+itemId+'"]').remove();
 }
 
 function cleanAll(){
@@ -39,11 +39,11 @@ function cleanAll(){
 
 function updateTotalPrice(itemId){
   if(itemId !== 0){
-    total_price = get_total(parseInt($('div[id="line-'+itemId+'"').children('.total').text().slice(1)));
+    total_price = get_total(parseInt($('div[id="line-'+itemId+'"]').children('.total').text().slice(1)));
     $('div[id="line-total"]').children('.total').text("€"+total_price);
     $('li[id="line-total"]').children('.total').text("€"+total_price);
   }else{
-    $('div[id="total-price').children('.total').text("€0.00");
+    $('div[id="total-price"]').children('.total').text("€0.00");
   }
 }
 
