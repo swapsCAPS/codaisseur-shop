@@ -2,7 +2,7 @@
 
 <img src="https://github.com/stofstik/codaisseur-shop/blob/master/7ffe8f9b-1dca-4570-a103-20605f949029-large.png" />
 
-###### URL: [mentor.codaisseur.cloud](http://mentor.codaisseur.cloud)
+###### URL: [findmentor.herokuapp.com](http://findmentor.herokuapp.com)
 
 ### CONTENT:
 #### Brief description
@@ -30,4 +30,3 @@ bundle install
 rake db:create db:migrate db:seed
 rails server
 ```
-
